@@ -1,0 +1,254 @@
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* remove later  */
+}
+
+.form-container {
+    width: 70%;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+}
+
+.heading {
+    text-align: center;
+    font-size: 24px;
+    color: #C59D5F;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.search-input {
+    height: 50px;
+    margin-bottom: 30px;
+}
+
+.search-input .input-group-prepend .input-group-text {
+    border: 1px solid #C59D5F;
+    border-left: none;
+    background-color: transparent;
+    padding-right: 1rem;
+}
+
+.search-input .form-control {
+    border: 1px solid #C59D5F;
+    border-right: none;
+    height: 60px;
+    font-size: 18px;
+    color: #625E5E;
+}
+
+.search-btn {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    background-color: #C59D5F;
+    outline: none;
+    border: none;
+    height: 45px;
+    color: white;
+
+}
+
+.search-btn:hover {
+    background-color: #F9C873;
+    color: white;
+}
+
+.input-fields {
+    color: #625E5E;
+    margin-bottom: 30px;
+}
+
+.input-fields input {
+    border: 1px solid #C59D5F;
+    height: 60px;
+    font-size: 18px;
+}
+
+.input-fields-rooms input {
+    border-right: none;
+}
+
+.input-fields-rooms {
+    cursor: pointer;
+}
+
+.dropdown-btn {
+    border: 1px solid #C59D5F;
+    border-left: none;
+}
+
+.dropdown-menu .dropdown-item .input-group-append button {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+}
+
+.dropdown-menu .dropdown-item .input-group-append .iconify {
+    font-size: 16px;
+}
+
+.form-control.property-name {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #625E5E;
+}
+
+.removeRoomBtnContainer {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.searchRemovePadding {
+    padding: 0;
+    height: 100%;
+    /* color: white; */
+}
+
+.searchRemovePadding p {
+    height: 2rem;
+    margin: 0 !important;
+    color: white;
+}
+
+.room {
+    transition: opacity 0.3s ease;
+}
+
+.removeRoomIcon {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #625E5E;
+}
+
+.removeRoomIcon:hover {
+    color: #EE4921;
+}
+
+.dropdown-menu {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.dropdown-menu {
+    top: auto;
+    bottom: 100%;
+}
+
+.addRoomButton {
+    margin-bottom: 5%;
+}
+
+.hidden {
+    display: none;
+}
+
+.addRoomIcon {
+    font-size: 18px;
+    margin-right: 3px;
+}
+
+.rooms {
+    margin-bottom: 2px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #414141;
+}
+
+.incrementOptions {
+    color: #625E5E;
+    font-size: 14px;
+    font-weight: 450;
+}
+
+.incrementDecrement {
+    border: 1px solid #CED4DA;
+    border-radius: 0;
+    color: #9e9d9d;
+    background-color: #F4F5F5;
+    font-weight: 800;
+}
+
+.incrementDecrement:hover {
+    background-color: #a7a4a4;
+}
+
+.age {
+    color: #625E5E;
+    font-weight: 400;
+}
+
+.incrementDecrement.add {
+    border-right: none;
+}
+
+.incrementDecrement.minus {
+    border-left: none;
+}
+
+@media (max-width: 535px) {
+
+    .optionsWrapper {
+        margin-bottom: 15px;
+    }
+
+    .addRoomButton {
+        margin-bottom: 15%;
+    }
+
+}
+
+@media (min-width: 376px) and (max-width: 535px) {
+    .optionsWrapper {
+        margin-right: 0.5rem !important;
+    }
+    .ageP {
+        padding-right: 2rem;
+    }
+}
+
+
+@media (max-width: 375px) {
+    .heading {
+        font-size: 16px;
+    }
+
+    .search-input .input-group-prepend {
+        display: none;
+    }
+
+    .search-input .form-control {
+        border-left: 1px solid #C59D5F;
+        border-right: 1px solid #C59D5F;
+        border-radius: 5px !important;
+        font-size: 16px;
+    }
+
+    .addRoomButton {
+        width: 101%;
+    }
+}
+
+@media (max-width: 321px) {
+    .ageP {
+        padding-right: 2rem;
+    }
+    
+}

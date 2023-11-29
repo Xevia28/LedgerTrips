@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Nunito+Sans:wght@200;300;400;500;600;700;800;900&display=swap");
+
+body {
+    font-family: "Nunito Sans";
+}
+
+.contents {
+    margin-top: 2rem;
+    position: relative;
+    padding: 1rem;
+}
+
+
+.content-container {
+    font-size: 14px;
+
+}
+
+.hr-line {
+    width: 100%;
+    height: 2px;
+    background: #E6E6E6;
+    margin: 2rem 0rem;
+}
+
+.room-card {
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+
+}
+
+.content-header {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.room-attribute {
+    color: #625E5E;
+}
+
+.room-value {
+    font-weight: 500;
+    color: #000;
+}
+
+.room-edit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #D4AC6F;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    color: #E6E6E6;
+    text-decoration: none;
+    column-gap: 10px;
+    font-size: 14px;
+    margin-top: 2rem;
+}
+
+.room-card-contents {
+    padding: 1rem;
+}
+
+.room-form-container {
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.add-QR-btn {
+    border-radius: 10px;
+    width: 180px;
+    height: 40px;
+    background: #2E75C8;
+    color: #fff;
+    border: none;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 7px;
+
+}
+
+.add-room-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-QR-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0rem;
+}
+
+.admin-room-image {
+    width: 100%;
+    height: 100%;
+}

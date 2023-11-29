@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../../public/img/Logo/logo_colours.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./public/rooms/room.css">
+    <link rel="stylesheet" href="./public/footer/footer.css">
+    <title>Rooms</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="search-container">
+            <div class="form-container">
+                <form class="form">
+                    <div class="form-row row">
+                        <div class="form-group search-input col-lg-3 col-md-9 col-sm-12">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <iconify-icon icon="carbon:search" width="30"></iconify-icon>
+                                    </span>
+                                </div>
+                                <div class="form-control property-name">THE PEMA BY REALM</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-2 col-md-9 col-sm-12 input-fields">
+                            <input type="date" id="checkIn" class="form-control">
+                        </div>
+                        <div class="form-group col-lg-2 col-md-9 col-sm-12 input-fields">
+                            <input type="date" id="checkOut" class="form-control">
+                        </div>
+                        <div class="form-group col-lg-3 col-md-9 col-sm-12">
+                            <div class="input-group" id="roomDiv">
+                                <div type="text" id="rooms" class="form-control roomsDes">
+                                    2 adults, 2 children, 2 Rooms
+                                </div>
+                                <div class="input-group-append">
+                                    <button id="roomDrop" class="btn dropdown-btn" type="button">
+                                        <iconify-icon icon="iconamoon:arrow-up-2-thin" width="30"
+                                            rotate="180deg"></iconify-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-btn-container col-lg-2 col-md-6 col-sm-12">
+                            <button class="search-btn btn btn-primary">SEARCH</button>
+                        </div>
+                        <div class="modal" id="myModal">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content roomModal">
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="roomCount">Rooms:</label>
+                                            <div class="input-group">
+                                                <button class="btn btn-sm rounded-circle modal-btn" type="button"
+                                                    id="decreaseRooms">
+                                                    -
+                                                </button>
+                                                <input type="text" class="form-control" id="roomCount" value="1"
+                                                    readonly>
+                                                <button class="btn btn-sm rounded-circle modal-btn" type="button"
+                                                    id="increaseRooms">
+                                                    +
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="adultCount">Adults:</label>
+                                            <div class="input-group">
+                                                <button class="btn btn-sm rounded-circle modal-btn" type="button"
+                                                    id="decreaseAdults">
+                                                    -
+                                                </button>
+                                                <input type="text" class="form-control" id="adultCount" value="1"
+                                                    readonly>
+                                                <button class="btn btn-sm rounded-circle modal-btn" type="button"
+                                                    id="increaseAdults">
+                                                    +
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="childCount">Children:</label>
+                                            <div class="input-group">
+                                                <button class="btn btn-sm rounded-circle modal-btn" type="button"
+                                                    id="decreaseChildren">
+                                                    -
+                                                </button>
+                                                <input type="text" class="form-control" id="childCount" value="0"
+                                                    readonly>
+                                                <button class="btn btn-sm rounded-circle modal-btn" type="button"
+                                                    id="increaseChildren">
+                                                    +
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="room-container">
+            <div>
+                <img src="./images/pemaSuite.png" class="room-image">
+            </div>
+            <div class="room-detail-container">
+                <div class="room-header">
+                    Pema Suite
+                </div>
+                <div class="room-details">
+                    The artistically designed Pema Suites combine warmth and comfort with the age-old charm of Bhutan’s
+                    rich cultural heritage.
+                </div>
+                <div class="room-location">
+                    <iconify-icon icon="mdi:location" class="room-location-icon"></iconify-icon>
+                    <div>
+                        Thori Lam, Lower Motithang, Thimphu
+                    </div>
+                </div>
+            </div>
+            <div class="room-price-container">
+                <div class="room-left">
+                    Only 5 left
+                </div>
+                <div class="room-price">
+                    Nu. 4500
+                </div>
+                <div class="room-price-switcher">
+                    <label class="switch">
+                        <input type="checkbox" id="currencyCheckbox">
+                        <span class="slider"></span>
+                    </label>
+                    <div>
+                        See in dollars
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="room-container">
+            <div>
+                <img src="./images/deluxe.png" class="room-image">
+            </div>
+            <div class="room-detail-container">
+                <div class="room-header">
+                    Deluxe
+                </div>
+                <div class="room-details">
+                    Simple yet elegant, our Deluxe Rooms offer cozy comfort with luxurious amenities after a full day of
+                    exploring the city.
+                </div>
+                <div class="room-location">
+                    <iconify-icon icon="mdi:location" class="room-location-icon"></iconify-icon>
+                    <div>
+                        Thori Lam, Lower Motithang, Thimphu
+                    </div>
+                </div>
+            </div>
+            <div class="room-price-container">
+                <div class="room-left">
+                    Only 5 left
+                </div>
+                <div class="room-price">
+                    Nu. 4500
+                </div>
+                <div class="room-price-switcher">
+                    <label class="switch">
+                        <input type="checkbox" id="currencyCheckbox">
+                        <span class="slider"></span>
+                    </label>
+                    <div>
+                        See in dollars
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="room-container">
+            <div>
+                <img src="./images/valleySuite.png" class="room-image">
+            </div>
+            <div class="room-detail-container">
+                <div class="room-header">
+                    Valley Suite
+                </div>
+                <div class="room-details">
+                    Our Valley Suites, generous, warm and artistic spaces, are in a luxurious category of their own with
+                    stunning views of the Thimphu Valley.
+                </div>
+                <div class="room-location">
+                    <iconify-icon icon="mdi:location" class="room-location-icon"></iconify-icon>
+                    <div>
+                        Thori Lam, Lower Motithang, Thimphu
+                    </div>
+                </div>
+            </div>
+            <div class="room-price-container">
+                <div class="room-left">
+                    Only 5 left
+                </div>
+                <div class="room-price">
+                    Nu. 4500
+                </div>
+                <div class="room-price-switcher">
+                    <label class="switch">
+                        <input type="checkbox" id="currencyCheckbox">
+                        <span class="slider"></span>
+                    </label>
+                    <div>
+                        See in dollars
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer row">
+        <div class="col-lg-4 col-md-4 col-sm-12 footer-items">
+            <div class="footer-header">
+                CONTACT
+            </div>
+            <center>
+                The Pema by Realm,
+                Thori Lam, Thimphu, Bhutan
+            </center>
+            <div>
+                <a href="mailto:stay@thepemahotel.com">
+                    stay@thepemahotel.com
+                </a>
+            </div>
+            <div>
+                <a href="tel:+2338888"> (975) 2338888
+                </a>,
+                <a href="tel:+2338888"> (975) 17279401 </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 footer-items">
+            <img src="./public/footer/logo.png" class="footer-logo justify">
+            <div>
+                Realm Hospitality is a local boutique hotel management company promoting sustainable tourism in Bhutan
+                and showcasing the best of authentic local hospitality. Impeccable service, attention to detail, unique
+                heritage-contemporary design paired with all the comforts of modern luxury are the hallmarks of The Pema
+                by Realm.
+            </div>
+            <div class="footer-copy-hide">
+                Copyright © 2023 The Pema by Realm. ALL RIGHTS RESERVED
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 footer-items">
+            <div class="footer-icon">
+                <div>
+                    <a href="asdf">
+                        <iconify-icon icon="devicon:facebook" width="40"></iconify-icon>
+                    </a>
+                </div>
+                <div>
+                    <a href="">
+
+                        <iconify-icon icon="skill-icons:instagram" width="40"></iconify-icon>
+                    </a>
+                </div>
+                <div>
+                    <a href="">
+
+                        <iconify-icon icon="fa-brands:tripadvisor" width="40"></iconify-icon>
+                    </a>
+                </div>
+                <div>
+                    <a href="">
+
+                        <iconify-icon icon="logos:whatsapp-icon" width="40"></iconify-icon>
+                    </a>
+                </div>
+
+            </div>
+            <div class="footer-copy-show">
+                Copyright © 2023 The Pema by Realm. ALL RIGHTS RESERVED
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./room.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,348 @@
+.filterWrapper {
+    height: 80px;
+}
+
+.filterWrapper .filter {
+    padding: 1rem;
+    align-items: center;
+    display: flex;
+}
+
+.filterWrapper .filter h1 {
+    font-size: 18px;
+    color: #696060;
+    font-weight: 600;
+    margin: 0;
+    margin-right: 1rem;
+}
+
+.filterWrapper .filter .dropdownFilter {
+    padding: 0.7rem 1rem;
+    margin-right: 1rem;
+    border-radius: 5px;
+}
+
+.calendarContainer {
+    padding: 1rem;
+    height: calc(125vh - 170px);
+    min-height: 610px;
+}
+
+.calendarContainer .calendar {
+    background-color: white;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid #D7D7D7;
+    width: 100%;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.253);
+}
+
+.calendarContainer .calendar .monthHeader {
+    display: flex;
+    justify-content: space-between;
+    height: 12%;
+    align-items: center;
+}
+
+.calendarContainer .calendar .monthHeader h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #696060;
+    padding: 0 2rem;
+}
+
+.calendarContainer .calendar .monthHeader .monthToggle {
+    padding: 0 2rem;
+}
+
+.calendarContainer .calendar .dayHeader {
+    height: 10%;
+    width: 100%;
+    background-color: #333132 !important;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.calendarContainer .calendar .dayHeader h2 {
+    font-family: "Nunito Sans";
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    color: white;
+    text-align: center;
+}
+
+.calendarContainer .calendar .dayWrapper {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    height: 78%;
+}
+
+.calendarContainer .calendar .dayWrapper .day {
+    height: 100%;
+    font-family: "Nunito Sans";
+    position: relative;
+    font-weight: 600;
+    border: 1px solid #BDBDBD;
+}
+
+.calendarContainer .calendar .dayWrapper .day .details {
+    position: absolute;
+    bottom: 0.2rem;
+    text-align: right;
+    right: 0.5rem;
+    color: rgb(117, 117, 117);
+}
+
+.calendarContainer .calendar .dayWrapper .day .details span,
+.calendarContainer .calendar .dayWrapper .day .details p {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+.calendarContainer .calendar .dayWrapper .day .details span {
+    color: #0433AB;
+}
+
+.calendarContainer .calendar .dayWrapper .day .details .room {
+    height: -moz-fit-content;
+    height: fit-content;
+}
+
+.calendarContainer .calendar .dayWrapper .day .date {
+    position: absolute;
+    font-size: 18px;
+    top: 0.4rem;
+    left: 0.4rem;
+}
+
+.calendarContainer .calendar .dayWrapper .inactive {
+    border: none;
+    border-top: 1px solid #BDBDBD;
+    border-bottom: 1px solid #BDBDBD;
+}
+
+.calendarContainer .calendar .dayWrapper .active {
+    color: white;
+    background-color: #3C56DF;
+    border: 1px solid #0433AB;
+}
+
+.calendarContainer .calendar .dayWrapper .customBooked {
+    color: rgb(43, 43, 43);
+    background-color: #F2D330;
+    border: 1px solid #ccb025;
+}
+
+.calendarContainer .calendar .dayWrapper .active .details {
+    color: #C6C6C6;
+}
+
+.calendarContainer .calendar .dayWrapper .active .details span {
+    color: white;
+}
+
+.formContainer {
+    padding: 1rem 1rem 1rem 0;
+    height: calc(125vh - 170px);
+    min-height: 610px;
+}
+
+.formContainer .formCalendar {
+    background-color: white;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid #D7D7D7;
+    width: 100%;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.253);
+}
+
+.formContainer .formCalendar .formHeaderWrapper {
+    background-color: #333132;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    height: 40%;
+    padding: 1rem 2rem;
+}
+
+.formContainer .formCalendar .formHeader {
+    font-family: "Nunito Sans";
+}
+
+.formContainer .formCalendar .formHeader h2 {
+    font-size: 14px;
+    color: rgb(173, 173, 173);
+    margin: 0;
+}
+
+.formContainer .formCalendar .formHeader h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+}
+
+.formContainer .formCalendar .dateWrapper {
+    padding: 1rem 0;
+    font-family: "Nunito Sans";
+    color: white;
+    display: flex;
+}
+
+.formContainer .formCalendar .dateWrapper label {
+    font-size: 14px;
+}
+
+.formContainer .formCalendar .dateWrapper input {
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+}
+
+.formContainer .formCalendar .submitBtn {
+    display: flex;
+    justify-content: center;
+}
+
+.formContainer .formCalendar .submitBtn button {
+    padding: 0.4rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #2E75C8;
+    transition: 0.25s all ease-in-out;
+}
+
+.formContainer .formCalendar .submitBtn button:hover {
+    background-color: #1958a1;
+}
+
+.formContainer .formCalendar .verificationWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+.formContainer .formCalendar .verificationWrapper span {
+    font-size: 16px;
+    margin: 0;
+    color: rgb(255, 36, 36);
+    margin-right: 0.4rem;
+}
+
+.formContainer .formCalendar .verificationWrapper p {
+    color: rgb(255, 36, 36);
+    margin: 0;
+}
+
+.formContainer .formCalendar .hide {
+    display: none;
+}
+
+.formContainer .updateFormWrapper {
+    font-family: "Nunito Sans";
+    color: #333132;
+}
+
+
+/* .formContainer .updateFormWrapper input[type=number] {
+    width: 50px;
+    padding: 0 0.3rem;
+} */
+
+.formContainer .updateFormWrapper .priceWrapper,
+.formContainer .updateFormWrapper .availabilityWrapper {
+    padding: 1rem;
+    height: 25%;
+}
+
+.formContainer .updateFormWrapper .priceWrapper {
+    background-color: #F4F4F4;
+}
+
+.formContainer .updateFormWrapper .priceWrapper input {
+    width: 100px;
+}
+
+.formContainer .updateFormWrapper label {
+    margin-right: 0.6rem;
+}
+
+.formContainer .updateFormWrapper h1 {
+    margin-bottom: 1.5rem !important;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.formContainer .updateFormWrapper .buttonWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -moz-column-gap: 1rem;
+    column-gap: 1rem;
+    height: 120px;
+}
+
+.formContainer .updateFormWrapper .buttonWrapper button {
+    padding: 0.3rem 1rem;
+    border: none;
+    width: 125px;
+    transition: 0.25s all ease-in-out;
+    border-radius: 5px;
+}
+
+.formContainer .updateFormWrapper .buttonWrapper #reset {
+    background-color: #D9D9D9;
+    color: black;
+}
+
+.formContainer .updateFormWrapper .buttonWrapper #reset:hover {
+    background-color: #979797;
+}
+
+.formContainer .updateFormWrapper .buttonWrapper #confirm {
+    background-color: #2E75C8;
+    color: white;
+}
+
+.formContainer .updateFormWrapper .buttonWrapper #confirm:hover {
+    background-color: #1958a1;
+}
+
+
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 90px);
+}
+
+.loading-spinner {
+    border: 5px solid #dddddd;
+    border-top: 5px solid #2079b4;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hide {
+    display: none;
+}
+
+/*# sourceMappingURL=home.css.map */

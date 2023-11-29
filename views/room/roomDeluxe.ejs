@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="icon" type="image/png" href="./img/Logo/logo_colours.png">
+    <link rel="stylesheet" href="/css/room.css">
+    <link rel="stylesheet" href="/css/roomDetail.css">
+    <link rel="stylesheet" href="/footer/footer.css">
+    <link rel="stylesheet" href="/css/nav.css">
+
+    <title>Rooms</title>
+</head>
+
+<body>
+
+    <nav>
+        <div class="d-flex justify-content-between nav-main-container">
+            <a href="" class="logo">
+                <img src="/img/Logo/white.png" alt="">
+            </a>
+            <label for="sidebar-toggle">
+
+                <!-- <span class="material-symbols-outlined nav-menu">
+                    menu
+                </span> -->
+            </label>
+        </div>
+        <input type="checkbox" id="sidebar-toggle">
+        <!-- <div class="nav-sidebar">
+            <label for="sidebar-toggle">
+
+                <span class="close material-symbols-outlined">
+                    close
+                </span>
+            </label>
+            <div class="logo">
+                <img src="/img/Logo/logo_colours.png" alt="">
+            </div>
+            <div class="sidebar-details">
+                <h1>Contact</h1>
+                <p>The Pema by Realm, Thori Lam</p>
+                <p>Thimphu, Bhutan</p>
+                <p>stay@thepemahotel.com</p>
+                <p>(975) 2338888</p>
+            </div>
+            <div class="sidebar-socials">
+                <h2>Follow</h2>
+                <div class="sidebar-socials-links">
+                    <iconify-icon class="sidebar-icon" icon="ri:facebook-fill"></iconify-icon>
+                    <iconify-icon class="sidebar-icon" icon="la:tripadvisor"></iconify-icon>
+                    <iconify-icon class="sidebar-icon" icon="mdi:instagram"></iconify-icon>
+                </div>
+            </div>
+        </div> -->
+
+    </nav>
+
+
+    <div class="container">
+        <div class="search-container">
+            <div class="form-container">
+                <form class="form">
+                    <div class="form-row row">
+                        <div class="form-group search-input col-lg-3 col-md-9 col-sm-12">
+                            <div class="input-group">
+                                <div class="form-control property-name search-readOnly">THE PEMA BY REALM, Thimphu</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-2 col-md-9 col-sm-12 input-fields search-readOnly">
+                            <input type="date" id="checkIn" class="form-control" value="<%= newSearch.checkinDate %>">
+                        </div>
+                        <div class="form-group col-lg-2 col-md-9 col-sm-12 input-fields search-readOnly">
+                            <input type="date" id="checkOut" class="form-control" value="<%= newSearch.checkoutDate %>">
+                        </div>
+                        <div class="form-group col-lg-3 col-md-9 col-sm-12 search-readOnly">
+                            <div class="input-group" id="roomDiv">
+                                <div id="rooms" class="form-control roomsDes">
+                                    <%= newSearch.fValue%>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-btn-container col-lg-2 col-md-6 col-sm-12">
+                            <!-- <button class="search-btn btn btn-primary">Go back to search</button> -->
+                            <a href="/" class="go-search">Go back to search</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="room-type">
+        <div id="roomName" class="container">
+            DELUXE ROOM
+        </div>
+    </div>
+
+    <div class="room-detail ">
+        <div class="container">
+
+            <div class="row mt-3 ">
+                <div class="col-lg-8 col-md-12 col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <img src="/images/image1.png" class="room-img-large">
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-lg-6 col-md-12 col-sm-12">
+                            <img src="/images/image1.png" class="room-img-large">
+                        </div>
+                        <div class="col-lg-6 ipad-mt-4 col-md-12 col-sm-12">
+                            <img src="/images/image1.png" class="room-img-large">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-1 line-container">
+                    <div class="hr-line"></div>
+                </div>
+                <div class="col-lg-3 col-md-12 col-sm-12  ipad-mt-4 ">
+                    <form>
+                        <div class="mb-4">
+                            <label for="exampleFormControlInput1" class="form-label">Name</label>
+                            <input id="name" class="form-control" type="text" placeholder="Enter your name"
+                                aria-label="default input example">
+
+                        </div>
+                        <div class="mb-4">
+                            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                            <input id="email" type="email" class="form-control" id="exampleFormControlInput1"
+                                placeholder="example@gmail.com">
+                        </div>
+                        <div class="mb-5">
+                            <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+                            <form onsubmit="process(event)">
+                                <input id="phone" class="form-control" type="tel" name="phone" />
+                            </form>
+                        </div>
+
+
+                        <div class="mb-5">
+                            <label for="exampleFormControlTextarea1" class="form-label">Special Requirements</label>
+                            <textarea id="requirement" class="form-control speacialrequirement"
+                                id="exampleFormControlTextarea1" rows="3"
+                                placeholder="For any special room and/or dietary preferences, please specify them here to help us ensure a more comfortable stay."></textarea>
+                        </div>
+
+                        <div class="search-btn-container col-lg-12 col-md-6 col-sm-12">
+                            <button id="bookBtn" class="search-btn btn">Book Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="room-amenities">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12 room-amenities-header">
+                    ROOM DETAILS
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12 room-description">
+                    Simple yet elegant, our Deluxe Rooms offer cozy comfort with luxurious amenities after a full day of
+                    exploring the city.
+                    <br><br>
+                    Designed to optimize space for today’s modern travellers, our Deluxe Rooms keep in mind the varying
+                    needs of our guests. Twin separate beds can easily be converted into a luxurious king-size plus bed
+                    and en suite bathrooms are equipped with rain showers, ensuring you have everything you need.
+                    Certain to elevate your experience to the next level, all Deluxe Rooms feature adjoining doors that
+                    can convert to a 2-bedroom Pema Suite.
+
+                    <div class="mt-4">
+                        <h6 class="room-size">ROOM SIZE</h6>
+                        <div>32-35 sq.m</div>
+                    </div>
+
+                    <div class="room-detail-line">
+
+                    </div>
+
+                    <div>
+                        <h6>AMENITIES</h6>
+                        <div class="row p-4">
+                            <ul class="col-lg-6 col-md-12 col-sm-12">
+                                <li class="mb-2">24 Hour Room Service </li>
+                                <li class="mb-2"> Bottled Filter Water</li>
+                                <li class="mb-2">Complimentary Hi-Speed WiFi</li>
+                                <li class="mb-2"> Hair Dryer</li>
+                                <li class="mb-2"> Iron & Ironing Board (On Request)</li>
+                                <li class="mb-2"> Laundry & Shoeshine Service</li>
+                                <li class="mb-2"> Complimentary Local Calls</li>
+                                <li class="mb-2">Rollaway Bed and Baby Cot(On Request)</li>
+                            </ul>
+                            <ul class="col-lg-6 col-md-12 col-sm-12">
+                                <li class="mb-2">Bathrobe & Bath Slippers</li>
+                                <li class="mb-2"> Cable Television</li>
+                                <li class="mb-2">In-Room Safe</li>
+                                <li class="mb-2"> King/Twin Beds</li>
+                                <li class="mb-2"> Mini Bar</li>
+                                <li class="mb-2">Pillow Choices(On Request)</li>
+                                <li class="mb-2"> Tea and Coffee Maker</li>
+                                <li class="mb-2"> Organic Soaps</li>
+                                <li class="mb-2">Turndown Service</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="footer row">
+        <div class="col-lg-4 col-md-4 col-sm-12 footer-items">
+            <div class="footer-header">
+                CONTACT
+            </div>
+            <center>
+                The Pema by Realm,
+                Thori Lam, Thimphu, Bhutan
+            </center>
+            <div>
+                <a href="mailto:stay@thepemahotel.com">
+                    stay@thepemahotel.com
+                </a>
+            </div>
+            <div>
+                <a href="tel:+2338888"> (975) 2338888
+                </a>,
+                <a href="tel:+2338888"> (975) 17279401 </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 footer-items">
+            <img src="/footer/logo.png" class="footer-logo justify">
+            <div>
+                Realm Hospitality is a local boutique hotel management company promoting sustainable tourism in Bhutan
+                and showcasing the best of authentic local hospitality. Impeccable service, attention to detail, unique
+                heritage-contemporary design paired with all the comforts of modern luxury are the hallmarks of The Pema
+                by Realm.
+            </div>
+            <div class="footer-copy-hide">
+                Copyright © 2023 The Pema by Realm. ALL RIGHTS RESERVED
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 footer-items">
+            <div class="footer-icon">
+                <div>
+                    <a href="https://www.facebook.com/thepemabyrealm">
+                        <iconify-icon icon="devicon:facebook" width="40"></iconify-icon>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.instagram.com/thepemabhutan/">
+
+                        <iconify-icon icon="skill-icons:instagram" width="40"></iconify-icon>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.tripadvisor.com/Hotel_Review-g293845-d17479982-Reviews-The_Pema_by_Realm-Thimphu_Thimphu_District.html">
+
+                        <iconify-icon icon="fa-brands:tripadvisor" width="40"></iconify-icon>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://api.whatsapp.com/send/?phone=97517279401&text&type=phone_number&app_absent=0">
+                        <iconify-icon icon="logos:whatsapp-icon" width="40"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-copy-show">
+                Copyright © 2023 The Pema by Realm. ALL RIGHTS RESERVED
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="/js/booking.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script>
+        const newSearch = `<%- JSON.stringify(newSearch) %>`; // Parse JSON string
+        initializeScript(newSearch);
+    </script>
+</body>
+
+</html>

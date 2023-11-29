@@ -1,0 +1,290 @@
+.content-row {
+    margin-top: 90px;
+}
+
+.cards-row {
+    margin-top: 1rem;
+}
+
+.contentWrapper .search-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0 1rem;
+}
+
+.search-component {
+    border: 1px solid #DCDCDC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+}
+
+.contentWrapper .search-input {
+    font-size: 16px;
+    padding: 0.5rem;
+    border: none;
+    border-right: 1px solid #DCDCDC;
+}
+
+.contentWrapper .search-icon {
+    font-size: 24px;
+    margin-right: 5px;
+    color: #A9A9A9;
+    padding-left: 0.5rem;
+    pointer-events: none;
+}
+
+.contentWrapper .add-booking-btn {
+    display: flex;
+    align-items: center;
+    background-color: #2E75C8;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contentWrapper .add-booking-btn:hover {
+    background-color: #082c55;
+}
+
+.contentWrapper .add-icon {
+    margin-right: 5px;
+    font-size: 22px;
+}
+
+.card-wrapper {
+    width: 98%;
+    margin-left: 0;
+}
+
+.card {
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #D4AC6F;
+    border-radius: 8px;
+    margin-top: 8%;
+
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    padding-bottom: 0;
+}
+
+.card-icon {
+    color: #3d3c3d;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    pointer-events: none;
+
+}
+
+.card-icon .stat-icon {
+    font-size: 50px;
+}
+
+.card-number {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    margin-left: 25%;
+}
+
+.card-name {
+    font-size: 20px;
+    color: #333132;
+    pointer-events: none;
+}
+
+.card-booking {
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    background-color: #EBEBEB;
+    position: relative;
+}
+
+.card-booking:before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 15%;
+    height: 70%;
+    width: 5px;
+    border-radius: 10px;
+    background-color: #333132;
+}
+
+.booking-info span,
+.booking-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.bold-info {
+    font-weight: 450;
+    color: #656565;
+    font-size: 14px;
+}
+
+.mainInfo {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(45, 45, 45);
+}
+
+.card-booking {
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    transition: background-color 0.4s ease-in-out;
+}
+
+.card-booking:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    background-color: #c9c9c9;
+}
+
+.reservation-number {
+    margin-left: 3%;
+}
+
+.popup-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+    margin-left: 5%;
+    margin-right: 5%
+}
+
+.popup-des {
+    margin-bottom: 2px;
+    color: #707070;
+    font-weight: 500;
+    text-align: left;
+}
+
+.popup-info {
+    text-align: left;
+}
+
+.popup-body {
+    padding: 0 !important;
+    text-align: center;
+}
+
+.popup-title {
+    padding: 1rem;
+}
+
+.popup-title.subtitle {
+    text-align: left;
+    margin: 0;
+    margin-left: 5%;
+    border: none;
+    padding-bottom: 0;
+    padding-left: 0px;
+}
+
+.line {
+    margin-left: 5%;
+    margin-right: 5%;
+    border-bottom: 1.5px solid #C6C6C6;
+}
+
+.modal-content {
+    text-align: left;
+}
+
+.popup-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-top>div {
+    display: flex;
+    flex-direction: column;
+}
+
+.dates-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.checkInfo {
+    margin-bottom: 0.1rem;
+    text-align: left;
+}
+
+.check-container {
+    margin: 0.5rem 1rem;
+}
+
+.check {
+    padding: 0.3rem 0.7rem;
+    border: 1px solid #BCBCBC;
+    background-color: #EFEFEF;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3d3d3d;
+    font-weight: 500;
+}
+
+.check .check-date {
+    font-size: 22px;
+    padding-right: 0.5rem;
+    color: #3d3d3d;
+}
+
+.button-container {
+    margin-bottom: 1rem;
+}
+
+.deleteBtn {
+    border-radius: 5px;
+    padding: 0.5rem 3rem;
+
+}
+
+.searchInput:focus {
+    outline: none;
+}
+
+.check .check-date {
+    pointer-events: none;
+}
+
+.reservation-number-popup {
+    display: flex;
+    margin-left: 5%;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.custom-modal-width {
+    max-width: 700px;
+}
+
+.overflow-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+}

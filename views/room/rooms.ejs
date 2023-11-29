@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./img/Logo/logo_colours.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="/css/room.css">
+    <link rel="stylesheet" href="/footer/footer.css">
+    <link rel="stylesheet" href="/css/nav.css">
+
+    <title>Rooms</title>
+</head>
+
+<body>
+    <nav>
+        <div class="d-flex justify-content-between nav-main-container">
+            <a href="" class="logo">
+                <img src="/img/Logo/white.png" alt="">
+            </a>
+            <label for="sidebar-toggle">
+
+                <!-- <span class="material-symbols-outlined nav-menu">
+                    menu
+                </span>
+            </label> -->
+        </div>
+        <input type="checkbox" id="sidebar-toggle">
+        <!-- <div class="nav-sidebar">
+            <label for="sidebar-toggle">
+
+                <span class="close material-symbols-outlined">
+                    close
+                </span>
+            </label>
+            <div class="logo">
+                <img src="/img/Logo/logo_colours.png" alt="">
+            </div>
+            <div class="sidebar-details">
+                <h1>Contact</h1>
+                <p>The Pema by Realm, Thori Lam</p>
+                <p>Thimphu, Bhutan</p>
+                <p>stay@thepemahotel.com</p>
+                <p>(975) 2338888</p>
+            </div>
+            <div class="sidebar-socials">
+                <h2>Follow</h2>
+                <div class="sidebar-socials-links">
+                    <iconify-icon class="sidebar-icon" icon="ri:facebook-fill"></iconify-icon>
+                    <iconify-icon class="sidebar-icon" icon="la:tripadvisor"></iconify-icon>
+                    <iconify-icon class="sidebar-icon" icon="mdi:instagram"></iconify-icon>
+                </div>
+            </div>
+        </div> -->
+
+    </nav>
+    <div class="container">
+
+        <div class="search-container">
+            <div class="form-container">
+                <form class="form">
+                    <div class="form-row row search-form">
+                        <div class="form-group search-input col-lg-3 col-md-9 col-sm-12">
+                            <div class="input-group">
+                                <!-- <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <iconify-icon icon="carbon:search" width="30"></iconify-icon>
+                                    </span>
+                                </div> -->
+                                <div class="form-control property-name search-readOnly">THE PEMA BY REALM, Thimphu</div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-2 col-md-9 col-sm-12 input-fields search-readOnly">
+                            <input type="date" id="checkIn" class="form-control" value="<%= newSearch.checkinDate %>">
+                        </div>
+                        <div class="form-group col-lg-2 col-md-9 col-sm-12 input-fields search-readOnly">
+                            <input type="date" id="checkOut" class="form-control" value="<%= newSearch.checkoutDate %>">
+                        </div>
+                        <div class="form-group col-lg-3 col-md-9 col-sm-12 search-readOnly">
+                            <div class="input-group" id="roomDiv">
+                                <div id="rooms" class="form-control roomsDes">
+                                    <%= newSearch.fValue%>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-btn-container col-lg-2 col-md-6 col-sm-12">
+                            <!-- <button class="search-btn btn btn-primary">Go back to search</button> -->
+                            <a href="/" class="go-search">Go back to search</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="whiteSpace"></div>
+        <div id="mainContainer">
+            <div id="topMessage" class="topMessage topMessage-hidden">&ast; Deluxe Rooms can accommodate a maximum of 2
+                adults only.
+            </div>
+            <!-- <div class="room-container">
+                <div>
+                    <img src="/images/pemaSuite.png" class="room-image">
+                </div>
+                <div class="room-detail-container">
+                    <div class="room-header">
+                        Pema Suite
+                    </div>
+                    <div class="room-details">
+                        The artistically designed Pema Suites combine warmth and comfort with the age-old charm of
+                        Bhutan’s
+                        rich cultural heritage.
+                    </div>
+                    <div class="room-location">
+                        <iconify-icon icon="mdi:location" class="room-location-icon"></iconify-icon>
+                        <div>
+                            Thori Lam, Lower Motithang, Thimphu
+                        </div>
+                    </div>
+                </div>
+                <div class="room-price-container">
+                    <div class="room-left">
+                        Only 5 left
+                    </div>
+                    <div class="room-price">
+                        Nu. 4500
+                    </div>
+                    <div class="room-price-switcher">
+                        <label class="switch">
+                            <input type="checkbox" id="currencyCheckbox">
+                            <span class="slider"></span>
+                        </label>
+                        <div>
+                            See in dollars
+                        </div>
+                    </div>
+                    <div class="cancellation" data-bs-toggle="modal" data-bs-target="#cancellationModal">
+                        Cancellation Policy
+                    </div>
+
+                </div>
+            </div> -->
+
+        </div>
+
+    </div>
+
+    <div class="footer row">
+        <div class="col-lg-4 col-md-4 col-sm-12 footer-items">
+            <div class="footer-header">
+                CONTACT
+            </div>
+            <center>
+                The Pema by Realm,
+                Thori Lam, Thimphu, Bhutan
+            </center>
+            <div>
+                <a href="mailto:stay@thepemahotel.com">
+                    stay@thepemahotel.com
+                </a>
+            </div>
+            <div>
+                <a href="tel:+2338888"> (975) 2338888
+                </a>,
+                <a href="tel:+2338888"> (975) 17279401 </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 footer-items">
+            <img src="/footer/logo.png" class="footer-logo justify">
+            <div>
+                Realm Hospitality is a local boutique hotel management company promoting sustainable tourism in Bhutan
+                and showcasing the best of authentic local hospitality. Impeccable service, attention to detail, unique
+                heritage-contemporary design paired with all the comforts of modern luxury are the hallmarks of The Pema
+                by Realm.
+            </div>
+            <div class="footer-copy-hide">
+                Copyright © 2023 The Pema by Realm. ALL RIGHTS RESERVED
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 footer-items">
+            <div class="footer-icon">
+                <div>
+                    <a href="https://www.facebook.com/thepemabyrealm">
+                        <iconify-icon icon="devicon:facebook" width="40"></iconify-icon>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.instagram.com/thepemabhutan/">
+
+                        <iconify-icon icon="skill-icons:instagram" width="40"></iconify-icon>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.tripadvisor.com/Hotel_Review-g293845-d17479982-Reviews-The_Pema_by_Realm-Thimphu_Thimphu_District.html">
+
+                        <iconify-icon icon="fa-brands:tripadvisor" width="40"></iconify-icon>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://api.whatsapp.com/send/?phone=97517279401&text&type=phone_number&app_absent=0">
+                        <iconify-icon icon="logos:whatsapp-icon" width="40"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-copy-show">
+                Copyright © 2023 The Pema by Realm. ALL RIGHTS RESERVED
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="cancellationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg cancellation-modal">
+            <div class="modal-content">
+                <div class="modal-body cancellation-modal-body">
+                    <ul>
+                        <li class="policy"><i class="fas fa-check"></i>Rates are quoted in Ngultrum/US Dollar and are
+                            based on single/double/triple occupancy.</li>
+                        <li class="policy"><i class="fas fa-check"></i>Cancellation received less than 14 days prior to
+                            check in will incur 100% cancellation fee.</li>
+                    </ul>
+                </div>
+                <div class="modal-footer cancellation-modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/room.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Nunito+Sans:wght@200;300;400;500;600;700;800;900&display=swap");
+
+body {
+  overflow-x: hidden;
+}
+
+nav {
+  position: relative;
+  height: 70px;
+  width: 100vw;
+}
+
+.nav-main-container {
+  background-color: #333132;
+  height: 70px;
+  padding: 0 9.5vw;
+  font-family: "Nunito Sans";
+  position: relative;
+}
+
+.nav-main-container .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100vw;
+}
+
+.nav-main-container .logo img {
+  height: 58px;
+  width: auto;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.nav-main-container .nav-menu {
+  position: absolute;
+  top: 50%;
+  color: white;
+  right: 9.5vw;
+  transform: translateY(-50%);
+  transition: 0.25s all ease-in-out;
+  font-weight: 200;
+  font-size: 1.6rem;
+}
+
+.nav-main-container .nav-menu:hover {
+  cursor: pointer;
+  color: #A0A0A0;
+}
+
+.nav-sidebar {
+  width: 420px;
+  box-shadow: 2px 2px 2px 2px rgb(165, 165, 165);
+  position: absolute;
+  right: -420px;
+  font-family: "Nunito Sans";
+  top: 0;
+  transition: 0.5s all ease-in-out;
+  background-color: white;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.nav-sidebar .close {
+  position: absolute;
+  top: 3.5rem;
+  left: 4.5rem;
+  font-weight: 200;
+  font-size: 1.8rem;
+  color: black;
+  transition: 0.25s all ease-in-out;
+}
+
+.nav-sidebar .close:hover {
+  cursor: pointer;
+  color: #DE9D3B;
+}
+
+.nav-sidebar .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10%;
+  margin-top: 20%;
+}
+
+.nav-sidebar img {
+  height: 100px;
+  width: auto;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.nav-sidebar .sidebar-details {
+  text-align: center;
+}
+
+.nav-sidebar .sidebar-details h1 {
+  font-size: 18px;
+  color: #808080;
+  font-weight: 700;
+  padding: 0.7rem;
+  margin-top: 1rem;
+}
+
+.nav-sidebar .sidebar-details p {
+  font-size: 15px;
+  color: #A9A9A9;
+  margin: 0.3rem;
+}
+
+.nav-sidebar .sidebar-socials {
+  text-align: center;
+}
+
+.nav-sidebar .sidebar-socials h2 {
+  font-size: 15px;
+  color: #A9A9A9;
+  font-weight: 700;
+  padding: 0.7rem;
+  margin-top: 3rem;
+}
+
+.nav-sidebar .sidebar-socials .sidebar-icon {
+  padding: 0.5rem;
+  font-size: 20px;
+  transition: 0.25s all ease-in-out;
+  cursor: pointer;
+  color: #8B8A8B;
+}
+
+.nav-sidebar .sidebar-socials .sidebar-icon:hover {
+  color: #DE9D3B;
+}
+
+#sidebar-toggle {
+  display: none;
+}
+
+#sidebar-toggle:checked~.nav-sidebar {
+  right: 0;
+}
+
+/*# sourceMappingURL=nav.css.map */

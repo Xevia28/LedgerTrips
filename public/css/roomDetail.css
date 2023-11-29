@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Nunito+Sans:wght@200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: "Nunito Sans";
+    color: #625E5E !important;
+}
+
+.room-type {
+    border-top: 1px solid #C59D5F;
+    border-bottom: 1px solid #C59D5F;
+    padding: 1.5rem 0rem;
+    background: #F6F6F6;
+    margin: 3rem 0rem;
+    font-size: 20px;
+}
+
+.line-container {
+    display: flex;
+    justify-content: center;
+}
+
+.hr-line {
+    width: 2px;
+    height: 100%;
+    background: #625E5E;
+    border-radius: 5px;
+}
+
+.room-img-large {
+    width: 100%;
+    height: 100%;
+}
+
+.form-control {
+    border: 1px solid #C59D5F !important;
+    font-size: 15px;
+    padding: 1rem;
+}
+
+.room-amenities {
+    margin: 4rem 0rem;
+}
+
+.room-amenities-header {
+    font-weight: 900;
+    font-size: 25px;
+}
+
+.room-description {
+    text-align: justify;
+}
+
+.room-size {
+    font-weight: 800;
+}
+
+.room-detail-line {
+    height: 2px;
+    width: 100%;
+    background: #625E5E;
+    margin: 3rem 0rem;
+}
+
+/* phone number with 100 */
+.iti--allow-dropdown {
+    width: 100%;
+}
+
+.speacialrequirement {
+    resize: none;
+    overflow: hidden;
+    height: 125px;
+}
+
+.form-control.search-readOnly{
+    padding:10px;
+}
+
+@media (max-width: 998px) {
+    .ipad-mt-4 {
+        margin-top: 20px;
+    }
+
+    .room-detail {
+        padding: 20px;
+        margin: 0 auto !important;
+    }
+
+    .room-type {
+        padding: 20px;
+    }
+}

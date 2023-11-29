@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <link rel="icon" type="image/png" href="/img/Logo/logo_colours.png">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/footer/footer.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <title>Search</title>
+</head>
+
+<body>
+    <nav>
+        <div class="d-flex justify-content-between nav-main-container">
+            <a href="" class="logo">
+                <img src="/img/Logo/white.png" alt="">
+            </a>
+            <!-- <label for="sidebar-toggle">
+
+                <span class="material-symbols-outlined nav-menu">
+                    menu
+                </span>
+            </label> -->
+        </div>
+        <!-- <input type="checkbox" id="sidebar-toggle"> -->
+        <!-- <div class="nav-sidebar">
+            <label for="sidebar-toggle">
+
+                <span class="close material-symbols-outlined">
+                    close
+                </span>
+            </label>
+            <div class="logo">
+                <img src="/img/Logo/logo_colours.png" alt="">
+            </div>
+            <div class="sidebar-details">
+                <h1>Contact</h1>
+                <p>The Pema by Realm, Thori Lam</p>
+                <p>Thimphu, Bhutan</p>
+                <p>stay@thepemahotel.com</p>
+                <p>(975) 2338888</p>
+            </div>
+            <div class="sidebar-socials">
+                <h2>Follow</h2>
+                <div class="sidebar-socials-links">
+                    <iconify-icon class="sidebar-icon" icon="ri:facebook-fill"></iconify-icon>
+                    <iconify-icon class="sidebar-icon" icon="la:tripadvisor"></iconify-icon>
+                    <iconify-icon class="sidebar-icon" icon="mdi:instagram"></iconify-icon>
+                </div>
+            </div>
+        </div> -->
+
+
+    </nav>
+
+    <div class="center-wrapper">
+        <div class="form-container">
+            <div class="heading">
+                CHECK OUT OUR AVAILABLE ROOMS THAT MATCH YOUR PLANS!
+            </div>
+            <div class="form-group search-input">
+                <div class="input-group">
+                    <div class="form-control property-name">THE PEMA BY REALM,Thimphu</div>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <span class="iconify" data-icon="feather:search" data-inline="false"
+                                style="font-size: 24px;"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <form class="form">
+                <div class="form-row">
+                    <div class="form-group col-md-6 input-fields">
+                        <label for="checkIn">CHECK-IN:</label>
+                        <input type="date" id="checkIn" class="form-control" onchange="checkDate()">
+                    </div>
+                    <div class="form-group col-md-6 input-fields">
+                        <label for="checkOut">CHECK-OUT:</label>
+                        <input type="date" id="checkOut" class="form-control" onchange="checkOutDate()">
+                    </div>
+                </div>
+            </form>
+            <div class="roomsMain">
+
+                <div class="form-row">
+                    <p for="rooms" class="rooms">Room 1</p>
+                </div>
+                <div class="form-row">
+                    <div class="form-group input-fields mr-3 optionsWrapper">
+                        <label for="adults" class="incrementOptions">Adults:</label>
+                        <div class="input-group">
+                            <button id="decrementAdults" class="btn incrementDecrement add" type="button">-</button>
+                            <div id="adultsCount" class="form-control">1</div>
+                            <button id="incrementAdults" class="btn incrementDecrement minus" type="button">+</button>
+                        </div>
+                    </div>
+                    <div class="form-group input-fields mr-3 optionsWrapper childm">
+                        <label for="children" class="incrementOptions">Child (0-12 years):</label>
+                        <div class="input-group">
+                            <button id="decrementChildren" class="btn incrementDecrement add" type="button">-</button>
+                            <div id="childrenCount" class="form-control">0</div>
+                            <button id="incrementChildren" class="btn incrementDecrement minus" type="button">+</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group input-fields mr-3 hidden optionsWrapper" id="age">
+                        <label for="age" class="incrementOptions">Age:</label>
+                        <div class="input-group">
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle ageDropdown incrementDecrement age" type="button"
+                                    id="ageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    0
+                                </button>
+
+                                <div class="dropdown-menu" aria-labelledby="ageDropdown">
+                                    <a id="ageValue" class="dropdown-item age-option" href="#">0</a>
+                                    <a id="ageValue" class="dropdown-item age-option" href="#">1</a>
+                                    <a id="ageValue" class="dropdown-item age-option" href="#">2</a>
+                                    <a id="ageValue" class="dropdown-item age-option" href="#">3</a>
+                                    <a id="ageValue" class="dropdown-item age-option" href="#">4</a>
+                                    <a id="ageValue" class="dropdown-item age-option" href="#">5</a>
+                                    <a id="ageValue" class="dropdown-item age-option" href="#">6</a>
+                                    <a id="ageValue" class="dropdown-item age-option" href="#">7</a>
+                                    <a id="ageValue" class="dropdown-item age-option" href="#">8</a>
+                                    <a id="ageValue" class="dropdown-item age-option" href="#">9</a>
+                                    <a id="ageValue" class="dropdown-item age-option" href="#">10</a>
+                                    <a id="ageValue" class="dropdown-item age-option" href="#">11</a>
+                                    <a id="ageValue" class="dropdown-item age-option" href="#">12</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="addRoomButton" class="btn btn-primary addRoomButton"><span class="addRoomIcon">+</span> Add
+                Another Room</button>
+            <button class="search-btn btn" id="searchBtn">SEARCH</button>
+        </div>
+    </div>
+    <div class="footer row">
+        <div class="col-lg-4 col-md-4 col-sm-12 footer-items">
+            <div class="footer-header">
+                CONTACT
+            </div>
+            <center>
+                The Pema by Realm,
+                Thori Lam, Thimphu, Bhutan
+            </center>
+            <div>
+                <a href="mailto:stay@thepemahotel.com">
+                    stay@thepemahotel.com
+                </a>
+            </div>
+            <div>
+                <a href="tel:+2338888"> (975) 2338888
+                </a>,
+                <a href="tel:+2338888"> (975) 17279401 </a>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 footer-items">
+            <img src="/footer/logo.png" class="footer-logo justify">
+            <div>
+                Realm Hospitality is a local boutique hotel management company promoting sustainable tourism in Bhutan
+                and showcasing the best of authentic local hospitality. Impeccable service, attention to detail, unique
+                heritage-contemporary design paired with all the comforts of modern luxury are the hallmarks of The Pema
+                by Realm.
+            </div>
+            <div class="footer-copy-hide">
+                Copyright © 2023 The Pema by Realm. ALL RIGHTS RESERVED
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 footer-items ">
+            <div class="footer-icon footer-icon-search">
+                <div>
+                    <a href="https://www.facebook.com/thepemabyrealm">
+                        <iconify-icon icon="devicon:facebook" width="40"></iconify-icon>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.instagram.com/thepemabhutan/">
+
+                        <iconify-icon icon="skill-icons:instagram" width="40"></iconify-icon>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.tripadvisor.com/Hotel_Review-g293845-d17479982-Reviews-The_Pema_by_Realm-Thimphu_Thimphu_District.html">
+
+                        <iconify-icon icon="fa-brands:tripadvisor" width="40"></iconify-icon>
+                    </a>
+                </div>
+                <div>
+                    <a href="https://api.whatsapp.com/send/?phone=97517279401&text&type=phone_number&app_absent=0">
+                        <iconify-icon icon="logos:whatsapp-icon" width="40"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-copy-show">
+                Copyright © 2023 The Pema by Realm. ALL RIGHTS RESERVED
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+    <script src="/js/search.js"></script>
+</body>
+
+</html>

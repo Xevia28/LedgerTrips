@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Nunito+Sans:wght@200;300;400;500;600;700;800;900&display=swap");
+
+body {
+    font-family: "Nunito Sans";
+}
+
+.contents {
+    margin-top: 2rem;
+    position: relative;
+}
+
+td {
+    padding: 1rem !important;
+}
+
+.table th,
+.table td {
+    width: 25% !important;
+    vertical-align: middle;
+}
+
+.QR-delete-btn {
+    color: #FF2222;
+}
+
+.QR-edit-btn {
+    color: #2CEC62;
+}
+
+.QR-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+.QR-delete-btn:hover,
+.QR-edit-btn:hover {
+    filter: brightness(90%);
+    cursor: pointer;
+}
+
+.content-container {
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+    margin: 0.75rem;
+    padding: 0.25rem;
+}
+
+.add-QR-btn {
+    border-radius: 10px;
+    width: 180px;
+    height: 40px;
+    background: #2E75C8;
+    color: #fff;
+    border: none;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    font-size: 12px;
+
+}
+
+.add-QR-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0rem;
+}
+
+.table {
+    margin-bottom: 2rem;
+}
+
+.content-container {
+    font-size: 14px;
+}
+
+.transaction-edit-btn{
+    background:none;
+    border: none;
+}
