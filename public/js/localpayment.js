@@ -32,6 +32,7 @@ async function bookNow(data) {
 
 var spanElement = document.querySelector('h3.amount span');
 const bData = JSON.parse(sessionStorage.getItem("bookingData"));
+console.log(bData)
 spanElement.textContent = bData.totalAmount;
 
 const reservationID = bData.reservationID

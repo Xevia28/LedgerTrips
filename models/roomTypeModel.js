@@ -1,42 +1,45 @@
 const mongoose = require('mongoose')
 
 const roomTypeSchema = new mongoose.Schema({
-
+    xrplAccount: {
+        type: String,
+        required: [true, "Please enter XRPL address!"]
+    },
     name: {
         type: String,
-        required:[true, "Please enter room name!"] 
+        required: [true, "Please enter room name!"]
     },
-    photo:{
+    photo: {
         type: String,
-        required:[true, "Image is required!"]
+        required: [true, "Image is required!"]
     },
     singlePrice: {
         type: Number,
-        required:[true, "Please enter price for single!"]
+        required: [true, "Please enter price for single!"]
     },
     doublePrice: {
         type: Number,
-        required:[true, "Please enter the price for double!"]
+        required: [true, "Please enter the price for double!"]
     },
     triplePrice: {
         type: Number,
-        required:[true, "Please enter the price for triple!"]
+        required: [true, "Please enter the price for triple!"]
     },
     numberOfRooms: {
         type: Number,
-        required:[true, "Please enter the number of rooms!"]
+        required: [true, "Please enter the number of rooms!"]
     },
     childRate: {
         type: Number,
         required: [true, "Please enter the child rate!"]
     },
     taxRate: {
-        type:Number,
-        required:[true, "Please enter the tax rate!"]
+        type: Number,
+        required: [true, "Please enter the tax rate!"]
     },
     description: {
-        type:String,
-        required:[true, "Please provide a brief description!"]
+        type: String,
+        required: [true, "Please provide a brief description!"]
     }
 })
 
