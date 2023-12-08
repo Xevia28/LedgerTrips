@@ -72,8 +72,8 @@ document.getElementById("bookBtn").addEventListener("click", async (e) => {
   const room = document.querySelector("#roomName").textContent.trim();
   if (room == "DELUXE ROOM") {
     roomType = "Deluxe Room";
-  } else if (room == "THE PEMA SUITE") {
-    roomType = "The Pema Suite";
+  } else if (room == "THE COMFY SUITE") {
+    roomType = "The Comfy Suite";
   } else if (room == "THE VALLEY SUITE") {
     roomType = "The Valley Suite";
   }

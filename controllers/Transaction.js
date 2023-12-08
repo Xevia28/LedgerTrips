@@ -10,7 +10,6 @@ exports.getTransaction = async (req, res) => {
     }
 };
 
-
 exports.updateBooking = async (req, res) => {
     const transactionVerification = true
     try {

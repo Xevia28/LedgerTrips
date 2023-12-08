@@ -1,11 +1,7 @@
 const mongoose = require('mongoose')
 
 const roomTypeSchema = new mongoose.Schema({
-    xrplAccount: {
-        type: String,
-        required: [true, "Please enter XRPL address!"]
-    },
-    name: {
+       name: {
         type: String,
         required: [true, "Please enter room name!"]
     },

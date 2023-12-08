@@ -1,13 +1,39 @@
-const receiverAddress = "rLBG48rc8djjJV15Yn7Rssp8PHbCTsY9pe";
-const secretKey = "sEdVQ4htrwdfVywGXcHSmdNck5bCgSh";
+/*Transaction Records - no need 
+
+Change QR-Code - No need
+sender information
+Address
+rNuDwNMRDukMCXNR5wx9QSbGD93opYzZWd
+Secret
+sEdS21A9ER94bda1MywURLTFbQzE6Em
+Balance
+10,000 XRP
+Sequence Number
+2313638 */
 
 async function sendTransaction() {
-    const amount = parseFloat(bData.totalAmount.replace(/[^\d.-]/g, ''));
-    const exchangeRate = 0.75;
+    const amount = parseFloat(bData.totalAmount.replace(/[^\d]/g, ''));
+
+    //exchanged rate is kept low since the balance is 10,000 
+    const exchangeRate = 0.0075;
 
     const xrplvalue = amount * exchangeRate
-    // Call the function with appropriate arguments
-    sendXRP("sEdSvTY3uM4YPJGfDEmdz64kTNBvgCQ", xrplvalue, receiverAddress);
+    console.log(xrplvalue)
+    const receiverAdd = await axios({
+        method: "get",
+        url: "http://localhost:4001/api/admin",
+    });
+    const receiverAddress = receiverAdd.data.data[0].xrplAccount;
+    const seed = document.querySelector("#userseed").value
+    if (seed === " " || seed === "") {
+        Swal.fire(
+            '',
+            'Seed cannot be empty ',
+            'error'
+        );
+    } else {
+        sendXRP(seed, xrplvalue, receiverAddress);
+    }
 }
 
 async function bookNow(data) {
@@ -20,12 +46,15 @@ async function bookNow(data) {
     if (book.data.status === "success") {
         Swal.fire(
             '',
-            'Transaction Successful',
+            'Booking Successful',
             'success'
         ).then(function () {
-            setTimeout(function () {
-                location.assign("/");
-            }, 100);
+            // setTimeout(function () {
+            //     location.assign("/");
+            // }, 100);
+
+            console.log("success")
+
         });
     }
 }
@@ -51,39 +80,6 @@ const totalRooms = bData.totalRooms
 const totalAmount = bData.totalAmount
 const loader = document.getElementById("loading-screen")
 
-// const submitButton = document.getElementById("btn");
-// document.getElementById("btn").addEventListener("click", async (e) => {
-//     e.preventDefault();
-//     loader.classList.remove("hide")
-//     const transactionID = document.getElementById("journalNumber").value
-//     if (transactionID == "") {
-//         Swal.fire(
-//             '',
-//             'Journal Number required!',
-//             'error'
-//         )
-//     } else {
-//         const data = {
-//             reservationID,
-//             name,
-//             email,
-//             contactNumber,
-//             specialRequirement,
-//             roomType,
-//             checkinDate,
-//             checkoutDate,
-//             adultNumber,
-//             childMinorNumber,
-//             childNumber,
-//             totalRoomTypes,
-//             totalRooms,
-//             totalAmount,
-//             transactionID
-//         }
-//         bookNow(data)
-//     }
-// })
-
 document.getElementById("btn").addEventListener("click", async (e) => {
     e.preventDefault();
     sendTransaction()
@@ -103,7 +99,6 @@ async function sendXRP(seed, amount, destination) {
             console.error("Invalid Seed Value", err);
             return;
         }
-        console.log(address)
         const prepared = await client.autofill({
             "TransactionType": "Payment",
             "Account": wallet.address,
@@ -111,12 +106,43 @@ async function sendXRP(seed, amount, destination) {
             "Destination": destination
         });
         const signed = wallet.sign(prepared);
-        console.log(signed)
         const tx = await client.submitAndWait(signed.tx_blob).catch((err) => {
             console.error("Transaction submission error:", err);
         });
 
-        const transactionID = tx.result.hash
+        console.log(tx)
+        const transactionID = tx.result.hash;
+        const transactionIDs = tx.result.hash;
+        const ledger_index = tx.result.ledger_index;
+        const hash = tx.result.hash;
+        const receiver = tx.result.Destination;
+        const sender = tx.result.Account;
+        const result = tx.result.meta.TransactionResult;
+        const amountsent = {
+            "value": tx.result.meta.delivered_amount,
+            "currency": "RIPPLE"
+        };
+        const date = new Date(tx.result.date * 1000);
+        const options = { weekday: 'short', month: 'short', day: 'numeric' };
+        const formattedDate = date.toLocaleDateString('en-US', options);
+        console.log(transactionIDs, ledger_index, hash, receiver, sender, result, formattedDate, amountsent);
+
+        const data = {
+            transactionID: transactionID,
+            ledger_index: ledger_index,
+            hash: hash,
+            receiver: receiver,
+            sender: sender,
+            result: result,
+            date: formattedDate,
+            amountsent: amountsent
+        };
+
+        const transaction = await axios({
+            method: "POST",
+            url: "http://localhost:4001/api/xrpltransaction",
+            data: data
+        });
 
         if (tx.result.meta.TransactionResult === "tesSUCCESS") {
             const data = {
@@ -137,6 +163,13 @@ async function sendXRP(seed, amount, destination) {
                 transactionID
             }
             bookNow(data)
+        }
+        else {
+            Swal.fire(
+                '',
+                'Error Transacting',
+                'error'
+            );
         }
 
     } catch (error) {

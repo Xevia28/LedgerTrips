@@ -1,16 +1,19 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const QR_schema = new mongoose.Schema({
-    account_number: {
-        type: Number,
-        required: true
+const transactionSchema = new Schema({
+    hash: { type: String, required: true, unique: true },
+    ledger_index: { type: Number, required: true },
+    date: { type: Date, required: true },
+    type: { type: String, required: true },
+    result: { type: String, required: true },
+    sender: { type: String, required: true },
+    receiver: { type: String, required: true },
+    amount: {
+        value: { type: String, required: true },
+        currency: { type: String, required: true },
     },
-    QR_pictures: {
-        type: String,
-        required: true
-    }
 });
 
-const QR_type = mongoose.model("QR_type", QR_schema);
+const TransactionHistory = model('TransactionHistory', transactionSchema);
 
-module.exports = QR_type;
+module.exports = TransactionHistory;

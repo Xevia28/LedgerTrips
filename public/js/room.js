@@ -1,6 +1,6 @@
 const rooms = [];
 let roomBooked = {}
-let mainObj={}
+let mainObj = {}
 
 let single = 0
 let double = 0
@@ -25,7 +25,7 @@ async function fetchData() {
     const allRooms = getRooms.data.data.roomType;
     const deluxeShow = getRooms.data.data.newSearch.deluxeShow;
     roomBooked = getRooms.data.data.newSearch.roomBooked
-
+    console.log(deluxeShow)
     allRooms.forEach((room) => {
       if (deluxeShow == true) {
         rooms.push(room);
@@ -52,124 +52,124 @@ async function fetchData() {
       }
     }
 
-    const checkinDate= getRooms.data.data.newSearch.checkinDate
-    const checkoutDate=getRooms.data.data.newSearch.checkoutDate
+    const checkinDate = getRooms.data.data.newSearch.checkinDate
+    const checkoutDate = getRooms.data.data.newSearch.checkoutDate
 
     const getCustomBookings = async () => {
       try {
         const response = await axios.get("http://localhost:4001/api/customBooking");
         const bookings = response.data.data;
         bookings.forEach((data) => {
-          if (checkinDate <= data.endDate && checkoutDate >= data.startDate){
+          if (checkinDate <= data.endDate && checkoutDate >= data.startDate) {
             if (!mainObj.hasOwnProperty(data.roomType)) {
               mainObj[data.roomType] = {};
             }
-            if(data.adultNumber == "Single"){
+            if (data.adultNumber == "Single") {
               if (!mainObj[data.roomType].hasOwnProperty('singlePrice')) {
                 mainObj[data.roomType]['singlePrice'] = 0;
                 mainObj[data.roomType]['singleDays'] = 0;
               }
-              if(checkinDate < data.startDate && checkoutDate > data.startDate && checkoutDate < data.endDate){
-                var day1=new Date(data.startDate)
-                var day2=new Date(checkoutDate)
+              if (checkinDate < data.startDate && checkoutDate > data.startDate && checkoutDate < data.endDate) {
+                var day1 = new Date(data.startDate)
+                var day2 = new Date(checkoutDate)
                 var time = Math.abs(day2.getTime() - day1.getTime());
                 var days = Math.ceil(time / (1000 * 3600 * 24));
                 mainObj[data.roomType].singleDays += days;
-                mainObj[data.roomType].singlePrice += days*data.price
-              }else if(checkinDate > data.startDate && checkinDate < data.endDate && checkoutDate > data.endDate){
-                var day1=new Date(checkinDate)
-                var day2=new Date(data.endDate)
+                mainObj[data.roomType].singlePrice += days * data.price
+              } else if (checkinDate > data.startDate && checkinDate < data.endDate && checkoutDate > data.endDate) {
+                var day1 = new Date(checkinDate)
+                var day2 = new Date(data.endDate)
                 var time = Math.abs(day2.getTime() - day1.getTime());
                 var days = Math.ceil(time / (1000 * 3600 * 24));
                 mainObj[data.roomType].singleDays += days;
-                mainObj[data.roomType].singlePrice += days*data.price
-              }else if(checkinDate > data.startDate && checkoutDate < data.endDate){
-                var day1=new Date(checkinDate)
-                var day2=new Date(checkoutDate)
+                mainObj[data.roomType].singlePrice += days * data.price
+              } else if (checkinDate > data.startDate && checkoutDate < data.endDate) {
+                var day1 = new Date(checkinDate)
+                var day2 = new Date(checkoutDate)
                 var time = Math.abs(day2.getTime() - day1.getTime());
                 var days = Math.ceil(time / (1000 * 3600 * 24));
                 mainObj[data.roomType].singleDays += days;
-                mainObj[data.roomType].singlePrice += days*data.price
-              }else if(checkinDate < data.startDate && checkoutDate > data.endDate){
-                var day1=new Date(data.startDate)
-                var day2=new Date(data.endDate)
+                mainObj[data.roomType].singlePrice += days * data.price
+              } else if (checkinDate < data.startDate && checkoutDate > data.endDate) {
+                var day1 = new Date(data.startDate)
+                var day2 = new Date(data.endDate)
                 var time = Math.abs(day2.getTime() - day1.getTime());
                 var days = Math.ceil(time / (1000 * 3600 * 24));
                 mainObj[data.roomType].singleDays += days;
-                mainObj[data.roomType].singlePrice += days*data.price
+                mainObj[data.roomType].singlePrice += days * data.price
               }
-            }else if(data.adultNumber == "Double"){
+            } else if (data.adultNumber == "Double") {
               if (!mainObj[data.roomType].hasOwnProperty('doublePrice')) {
                 mainObj[data.roomType]['doublePrice'] = 0;
                 mainObj[data.roomType]['doubleDays'] = 0;
               }
-              if(checkinDate < data.startDate && checkoutDate > data.startDate && checkoutDate < data.endDate){
-                var day1=new Date(data.startDate)
-                var day2=new Date(checkoutDate)
+              if (checkinDate < data.startDate && checkoutDate > data.startDate && checkoutDate < data.endDate) {
+                var day1 = new Date(data.startDate)
+                var day2 = new Date(checkoutDate)
                 var time = Math.abs(day2.getTime() - day1.getTime());
                 var days = Math.ceil(time / (1000 * 3600 * 24));
                 mainObj[data.roomType].doubleDays += days;
-                mainObj[data.roomType].doublePrice += days*data.price
-              }else if(checkinDate > data.startDate && checkinDate < data.endDate && checkoutDate > data.endDate){
-                var day1=new Date(checkinDate)
-                var day2=new Date(data.endDate)
+                mainObj[data.roomType].doublePrice += days * data.price
+              } else if (checkinDate > data.startDate && checkinDate < data.endDate && checkoutDate > data.endDate) {
+                var day1 = new Date(checkinDate)
+                var day2 = new Date(data.endDate)
                 var time = Math.abs(day2.getTime() - day1.getTime());
                 var days = Math.ceil(time / (1000 * 3600 * 24));
                 mainObj[data.roomType].doubleDays += days;
-                mainObj[data.roomType].doublePrice += days*data.price
-              }else if(checkinDate > data.startDate && checkoutDate < data.endDate){
-                var day1=new Date(checkinDate)
-                var day2=new Date(checkoutDate)
+                mainObj[data.roomType].doublePrice += days * data.price
+              } else if (checkinDate > data.startDate && checkoutDate < data.endDate) {
+                var day1 = new Date(checkinDate)
+                var day2 = new Date(checkoutDate)
                 var time = Math.abs(day2.getTime() - day1.getTime());
                 var days = Math.ceil(time / (1000 * 3600 * 24));
                 mainObj[data.roomType].doubleDays += days;
-                mainObj[data.roomType].doublePrice += days*data.price
-              }else if(checkinDate < data.startDate && checkoutDate > data.endDate){
-                var day1=new Date(data.startDate)
-                var day2=new Date(data.endDate)
+                mainObj[data.roomType].doublePrice += days * data.price
+              } else if (checkinDate < data.startDate && checkoutDate > data.endDate) {
+                var day1 = new Date(data.startDate)
+                var day2 = new Date(data.endDate)
                 var time = Math.abs(day2.getTime() - day1.getTime());
                 var days = Math.ceil(time / (1000 * 3600 * 24));
-                mainObj[data.roomType].doubleDays+= days;
-                mainObj[data.roomType].doublePrice += days*data.price
+                mainObj[data.roomType].doubleDays += days;
+                mainObj[data.roomType].doublePrice += days * data.price
               }
-            }else if(data.adultNumber == "Triple"){
+            } else if (data.adultNumber == "Triple") {
               if (!mainObj[data.roomType].hasOwnProperty('triplePrice')) {
                 mainObj[data.roomType]['triplePrice'] = 0;
                 mainObj[data.roomType]['tripleDays'] = 0;
               }
-              if(checkinDate < data.startDate && checkoutDate > data.startDate && checkoutDate < data.endDate){
-                var day1=new Date(data.startDate)
-                var day2=new Date(checkoutDate)
+              if (checkinDate < data.startDate && checkoutDate > data.startDate && checkoutDate < data.endDate) {
+                var day1 = new Date(data.startDate)
+                var day2 = new Date(checkoutDate)
                 var time = Math.abs(day2.getTime() - day1.getTime());
                 var days = Math.ceil(time / (1000 * 3600 * 24));
                 mainObj[data.roomType].tripleDays += days;
-                mainObj[data.roomType].doublePrice += days*data.price
-              }else if(checkinDate > data.startDate && checkinDate < data.endDate && checkoutDate > data.endDate){
-                var day1=new Date(checkinDate)
-                var day2=new Date(data.endDate)
+                mainObj[data.roomType].doublePrice += days * data.price
+              } else if (checkinDate > data.startDate && checkinDate < data.endDate && checkoutDate > data.endDate) {
+                var day1 = new Date(checkinDate)
+                var day2 = new Date(data.endDate)
                 var time = Math.abs(day2.getTime() - day1.getTime());
                 var days = Math.ceil(time / (1000 * 3600 * 24));
                 mainObj[data.roomType].tripleDays += days;
-                mainObj[data.roomType].doublePrice += days*data.price
-              }else if(checkinDate > data.startDate && checkoutDate < data.endDate){
-                var day1=new Date(checkinDate)
-                var day2=new Date(checkoutDate)
+                mainObj[data.roomType].doublePrice += days * data.price
+              } else if (checkinDate > data.startDate && checkoutDate < data.endDate) {
+                var day1 = new Date(checkinDate)
+                var day2 = new Date(checkoutDate)
                 var time = Math.abs(day2.getTime() - day1.getTime());
                 var days = Math.ceil(time / (1000 * 3600 * 24));
                 mainObj[data.roomType].tripleDays += days;
-                mainObj[data.roomType].doublePrice += days*data.price
-              }else if(checkinDate < data.startDate && checkoutDate > data.endDate){
-                var day1=new Date(data.startDate)
-                var day2=new Date(data.endDate)
+                mainObj[data.roomType].doublePrice += days * data.price
+              } else if (checkinDate < data.startDate && checkoutDate > data.endDate) {
+                var day1 = new Date(data.startDate)
+                var day2 = new Date(data.endDate)
                 var time = Math.abs(day2.getTime() - day1.getTime());
                 var days = Math.ceil(time / (1000 * 3600 * 24));
                 mainObj[data.roomType].tripleDays += days;
-                mainObj[data.roomType].doublePrice += days*data.price
+                mainObj[data.roomType].doublePrice += days * data.price
               }
             }
           }
         });
-      } catch (err) {    
+      } catch (err) {
         console.log(err);
       }
     };
@@ -288,16 +288,16 @@ async function fetchData() {
       const appChild = getRooms.data.data.newSearch.appChild
       const minorChild = getRooms.data.data.newSearch.minorChild
 
-      var date1=new Date(getRooms.data.data.newSearch.checkinDate)
-      var date2=new Date(getRooms.data.data.newSearch.checkoutDate)
+      var date1 = new Date(getRooms.data.data.newSearch.checkinDate)
+      var date2 = new Date(getRooms.data.data.newSearch.checkoutDate)
       var timeDiff = Math.abs(date2.getTime() - date1.getTime());
       // Calculate the number of days
       var daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-      
-      if(!mainObj.hasOwnProperty(room.name)){
-        var totalPrice = (single * room.singlePrice + double * room.doublePrice + triple * room.triplePrice + room.childRate * appChild + room.childRate * minorChild)*daysDiff;
+
+      if (!mainObj.hasOwnProperty(room.name)) {
+        var totalPrice = (single * room.singlePrice + double * room.doublePrice + triple * room.triplePrice + room.childRate * appChild + room.childRate * minorChild) * daysDiff;
         var rate = (room.taxRate / 100) * totalPrice
-        var Nu = rate+totalPrice
+        var Nu = rate + totalPrice
         priceElement.innerHTML = `Nu. ${Nu.toLocaleString("en-US")}`;
         checkbox.addEventListener("change", function () {
           if (checkbox.checked) {
@@ -310,19 +310,19 @@ async function fetchData() {
             )}`;
           }
         });
-      }else{
+      } else {
 
-        var totalPrice=((single * room.singlePrice) * (daysDiff - (mainObj[room.name].singleDays ? mainObj[room.name].singleDays : 0))) + 
-        ((double * room.doublePrice) * (daysDiff -(mainObj[room.name].doubleDays ? mainObj[room.name].doubleDays : 0))) + 
-        ((triple * room.triplePrice) * (daysDiff -(mainObj[room.name].doubleDays ? mainObj[room.name].doubleDays : 0))) + 
-        room.childRate * appChild + room.childRate * minorChild + 
-        (mainObj[room.name].singlePrice ? mainObj[room.name].singlePrice : 0) + 
-        (mainObj[room.name].doublePrice ? mainObj[room.name].doublePrice : 0) + 
-        (mainObj[room.name].triplePrice ? mainObj[room.name].triplePrice : 0);
+        var totalPrice = ((single * room.singlePrice) * (daysDiff - (mainObj[room.name].singleDays ? mainObj[room.name].singleDays : 0))) +
+          ((double * room.doublePrice) * (daysDiff - (mainObj[room.name].doubleDays ? mainObj[room.name].doubleDays : 0))) +
+          ((triple * room.triplePrice) * (daysDiff - (mainObj[room.name].doubleDays ? mainObj[room.name].doubleDays : 0))) +
+          room.childRate * appChild + room.childRate * minorChild +
+          (mainObj[room.name].singlePrice ? mainObj[room.name].singlePrice : 0) +
+          (mainObj[room.name].doublePrice ? mainObj[room.name].doublePrice : 0) +
+          (mainObj[room.name].triplePrice ? mainObj[room.name].triplePrice : 0);
 
         var rate = (room.taxRate / 100) * totalPrice
 
-        var Nu = totalPrice+rate
+        var Nu = totalPrice + rate
 
         priceElement.innerHTML = `Nu. ${Nu.toLocaleString("en-US")}`;
         checkbox.addEventListener("change", function () {
@@ -337,7 +337,7 @@ async function fetchData() {
           }
         });
       }
-    
+
 
     });
     const cards = document.querySelectorAll(".room-container");
@@ -374,7 +374,7 @@ const cardPressed = async (e) => {
       } else {
         location.assign('/deluxeRoom');
       }
-    } else if (Room.name === "The Pema Suite") {
+    } else if (Room.name === "The Comfy Suite") {
       if (Room.numberOfRooms - roomBooked[Room.name] <= 0) {
         alert("No available rooms!")
       } else if (single + double + triple > (Room.numberOfRooms - roomBooked[Room.name])) {
@@ -382,7 +382,7 @@ const cardPressed = async (e) => {
       } else {
         location.assign('/pemaSuite');
       }
-    } else if (Room.name === "The Valley Suite") {
+    } else if (Room.name === "Valley Suite") {
       if (Room.numberOfRooms - roomBooked[Room.name] <= 0) {
         alert("No available rooms!")
       } else if (single + double + triple > (Room.numberOfRooms - roomBooked[Room.name])) {
