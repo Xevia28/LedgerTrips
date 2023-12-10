@@ -10,6 +10,17 @@ exports.loginPage = async (req, res, next) => {
     }
 };
 
+exports.adminProfile = async (req, res, next) => {
+    try {
+      res.render("./Dashboard/adminProfile.ejs");
+    } catch (error) {
+      console.log(error);
+    }
+};
+
+
+
+
 exports.getAllAdmins = async (req, res, next) => {
     try {
         const admin = await Admin.find()

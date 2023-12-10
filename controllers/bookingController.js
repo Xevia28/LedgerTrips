@@ -127,12 +127,7 @@ exports.createBooking = async (req, res) => {
             
             
                 <div class="container">
-                    <div class="nav-bar">
-                        <img src="http://139.59.46.216/wp-content/uploads/2022/10/Untitled-1.png" class="hotel-logo" alt="Logo">
-                        <br><br>
-                        <b class="reservationNumber">RESERVATION CONFIRMATION</b>
-                    </div>
-            
+                             
                     <div class="reservation-data">
                         <p>
                             Dear ${booking.name} & Group,

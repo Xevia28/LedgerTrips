@@ -28,7 +28,7 @@ async function sendTransaction() {
     const amount = parseFloat(bData.totalAmount.replace(/[^\d]/g, ''));
 
     //exchanged rate is kept low since the balance is 10,000 
-    const exchangeRate = 0.0075;
+    const exchangeRate = 0.75;
 
     const xrplvalue = amount * exchangeRate
     console.log(xrplvalue)

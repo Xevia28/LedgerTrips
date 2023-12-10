@@ -7,3 +7,12 @@ Balance
 10,000 XRP
 Sequence Number
 2313638
+
+
+xrpl used 
+localpayment.js
+profile.js
+
+if insufficient balance is coming change this in localpayment.js
+ //exchanged rate is kept low since the balance is 10,000 
+    const exchangeRate = 0.75;
