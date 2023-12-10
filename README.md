@@ -16,3 +16,6 @@ profile.js
 if insufficient balance is coming change this in localpayment.js
  //exchanged rate is kept low since the balance is 10,000 
     const exchangeRate = 0.75;
+
+
+create a email for ledgertrips and change the email in config.env
