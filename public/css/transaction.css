@@ -73,7 +73,15 @@ td {
     font-size: 14px;
 }
 
-.transaction-edit-btn{
-    background:none;
+.transaction-edit-btn {
+    background: none;
     border: none;
+}
+
+.contentWrapper {
+    width: 100%;
+}
+
+.contents {
+    /* overflow: scroll; */
 }

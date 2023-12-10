@@ -66,7 +66,7 @@ const bookingSchema = new mongoose.Schema({
     },
     transactionVerification:{
         type: Boolean,
-        default:false,
+        default:true,
     }
 })
 

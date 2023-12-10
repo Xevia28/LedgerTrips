@@ -1,15 +1,28 @@
-/*Transaction Records - no need 
+var spanElement = document.querySelector('h3.amount span');
+const bData = JSON.parse(sessionStorage.getItem("bookingData"));
+console.log(bData)
+spanElement.textContent = bData.totalAmount;
 
-Change QR-Code - No need
-sender information
-Address
-rNuDwNMRDukMCXNR5wx9QSbGD93opYzZWd
-Secret
-sEdS21A9ER94bda1MywURLTFbQzE6Em
-Balance
-10,000 XRP
-Sequence Number
-2313638 */
+const reservationID = bData.reservationID
+const name = bData.name
+const email = bData.email
+const contactNumber = bData.contactNumber
+const specialRequirement = bData.specialRequirement
+const roomType = bData.roomType
+const checkinDate = bData.checkinDate
+const checkoutDate = bData.checkoutDate
+const adultNumber = bData.adultNumber
+const childMinorNumber = bData.childMinorNumber
+const childNumber = bData.childNumber
+const totalRoomTypes = bData.totalRoomTypes
+const totalRooms = bData.totalRooms
+const totalAmount = bData.totalAmount
+const loader = document.getElementById("loading-screen")
+
+document.getElementById("btn").addEventListener("click", async (e) => {
+    e.preventDefault();
+    sendTransaction()
+})
 
 async function sendTransaction() {
     const amount = parseFloat(bData.totalAmount.replace(/[^\d]/g, ''));
@@ -49,45 +62,16 @@ async function bookNow(data) {
             'Booking Successful',
             'success'
         ).then(function () {
-            // setTimeout(function () {
-            //     location.assign("/");
-            // }, 100);
-
-            console.log("success")
-
+            setTimeout(function () {
+                location.assign("/");
+            }, 100);
         });
     }
 }
 
-var spanElement = document.querySelector('h3.amount span');
-const bData = JSON.parse(sessionStorage.getItem("bookingData"));
-console.log(bData)
-spanElement.textContent = bData.totalAmount;
-
-const reservationID = bData.reservationID
-const name = bData.name
-const email = bData.email
-const contactNumber = bData.contactNumber
-const specialRequirement = bData.specialRequirement
-const roomType = bData.roomType
-const checkinDate = bData.checkinDate
-const checkoutDate = bData.checkoutDate
-const adultNumber = bData.adultNumber
-const childMinorNumber = bData.childMinorNumber
-const childNumber = bData.childNumber
-const totalRoomTypes = bData.totalRoomTypes
-const totalRooms = bData.totalRooms
-const totalAmount = bData.totalAmount
-const loader = document.getElementById("loading-screen")
-
-document.getElementById("btn").addEventListener("click", async (e) => {
-    e.preventDefault();
-    sendTransaction()
-})
-
 async function sendXRP(seed, amount, destination) {
     const client = new xrpl.Client('wss://s.devnet.rippletest.net:51233/', { connectionTimeout: 10000 });
-
+    loader.classList.add("hide")
     try {
         await client.connect();
         let address = "";
@@ -110,39 +94,37 @@ async function sendXRP(seed, amount, destination) {
             console.error("Transaction submission error:", err);
         });
 
-        console.log(tx)
         const transactionID = tx.result.hash;
-        const transactionIDs = tx.result.hash;
         const ledger_index = tx.result.ledger_index;
         const hash = tx.result.hash;
         const receiver = tx.result.Destination;
         const sender = tx.result.Account;
         const result = tx.result.meta.TransactionResult;
-        const amountsent = {
-            "value": tx.result.meta.delivered_amount,
-            "currency": "RIPPLE"
-        };
+        const amountsent = `${tx.result.meta.delivered_amount} RIPPLE`
         const date = new Date(tx.result.date * 1000);
         const options = { weekday: 'short', month: 'short', day: 'numeric' };
         const formattedDate = date.toLocaleDateString('en-US', options);
-        console.log(transactionIDs, ledger_index, hash, receiver, sender, result, formattedDate, amountsent);
+        console.log(transactionID, ledger_index, hash, receiver, sender, result, formattedDate, amountsent);
 
-        const data = {
-            transactionID: transactionID,
-            ledger_index: ledger_index,
+        const datas = {
             hash: hash,
-            receiver: receiver,
-            sender: sender,
-            result: result,
+            ledger_index: ledger_index,
             date: formattedDate,
-            amountsent: amountsent
+            type: "Payment",
+            result: result,
+            sender: sender,
+            receiver: receiver,
+            amount: amountsent,
+            transactionID: transactionID,
         };
 
         const transaction = await axios({
             method: "POST",
             url: "http://localhost:4001/api/xrpltransaction",
-            data: data
+            data: datas
         });
+
+        console.log(transaction.data.data)
 
         if (tx.result.meta.TransactionResult === "tesSUCCESS") {
             const data = {

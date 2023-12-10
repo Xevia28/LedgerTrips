@@ -12,6 +12,7 @@ exports.getTransaction = async (req, res) => {
 
 exports.updateBooking = async (req, res) => {
     const transactionVerification = true
+    
     try {
         const booking = await Booking.findByIdAndUpdate(req.params.id, { transactionVerification });
 

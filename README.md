@@ -1,3 +1,9 @@
-new project for pema hotel
-
-member 1 Bajay in
+sender information
+Address
+rNuDwNMRDukMCXNR5wx9QSbGD93opYzZWd
+Secret
+sEdS21A9ER94bda1MywURLTFbQzE6Em
+Balance
+10,000 XRP
+Sequence Number
+2313638
