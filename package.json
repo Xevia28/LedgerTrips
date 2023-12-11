@@ -1,12 +1,12 @@
 {
-  "name": "pema_hotel",
+  "name": "ledger-trips",
   "version": "1.0.1",
-  "description": "new project for pema hotel",
+  "description": "hotel booking system using the xrp ledger",
   "main": "app.js",
   "scripts": {
     "start": "nodemon server.js"
   },
-  "author": "Tashi Wangyel",
+  "author": "Xevia",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.4.0",
@@ -24,6 +24,6 @@
     "validator": "^13.9.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^3.0.2"
   }
 }

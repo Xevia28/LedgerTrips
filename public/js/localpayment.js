@@ -93,6 +93,7 @@ async function sendXRP(seed, amount, destination) {
         const tx = await client.submitAndWait(signed.tx_blob).catch((err) => {
             console.error("Transaction submission error:", err);
         });
+        console.log(tx)
 
         const transactionID = tx.result.hash;
         const ledger_index = tx.result.ledger_index;
@@ -106,27 +107,27 @@ async function sendXRP(seed, amount, destination) {
         const formattedDate = date.toLocaleDateString('en-US', options);
         console.log(transactionID, ledger_index, hash, receiver, sender, result, formattedDate, amountsent);
 
-        const datas = {
-            hash: hash,
-            ledger_index: ledger_index,
-            date: formattedDate,
-            type: "Payment",
-            result: result,
-            sender: sender,
-            receiver: receiver,
-            amount: amountsent,
-            transactionID: transactionID,
-        };
-
-        const transaction = await axios({
-            method: "POST",
-            url: "http://localhost:4001/api/xrpltransaction",
-            data: datas
-        });
-
-        console.log(transaction.data.data)
-
         if (tx.result.meta.TransactionResult === "tesSUCCESS") {
+            const datas = {
+                hash: hash,
+                ledger_index: ledger_index,
+                date: formattedDate,
+                type: "Payment",
+                result: result,
+                sender: sender,
+                receiver: receiver,
+                amount: amountsent,
+                transactionID: transactionID,
+            };
+
+            const transaction = await axios({
+                method: "POST",
+                url: "http://localhost:4001/api/xrpltransaction",
+                data: datas
+            });
+
+            console.log(transaction)
+
             const data = {
                 reservationID,
                 name,
@@ -144,16 +145,14 @@ async function sendXRP(seed, amount, destination) {
                 totalAmount,
                 transactionID
             }
-            bookNow(data)
-        }
-        else {
+            bookNow(data);
+        } else {
             Swal.fire(
                 '',
                 'Error Transacting',
                 'error'
             );
         }
-
     } catch (error) {
         console.error(error);
     } finally {
