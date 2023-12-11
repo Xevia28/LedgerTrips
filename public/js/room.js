@@ -380,7 +380,7 @@ const cardPressed = async (e) => {
       } else if (single + double + triple > (Room.numberOfRooms - roomBooked[Room.name])) {
         alert("The number of available rooms is less than required!")
       } else {
-        location.assign('/pemaSuite');
+        location.assign('/comfortSuite');
       }
     } else if (Room.name === "Valley Suite") {
       if (Room.numberOfRooms - roomBooked[Room.name] <= 0) {

@@ -14,7 +14,7 @@ router
     .get(searchController.RoomDetailPage)
 
 router
-    .route('/pemaSuite')
+    .route('/comfortSuite')
     .get(searchController.RoomPema)
 
 router

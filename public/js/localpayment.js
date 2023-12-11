@@ -1,7 +1,20 @@
 var spanElement = document.querySelector('h3.amount span');
 const bData = JSON.parse(sessionStorage.getItem("bookingData"));
 console.log(bData)
-spanElement.textContent = bData.totalAmount;
+const currencySymbol = bData.totalAmount.match(/[^\d.,]+/)[0];
+var XRPLVALUE = 0;
+
+if (currencySymbol === "Nu") {
+    const amounts = parseFloat(bData.totalAmount.replace(/[^\d]/g, ''));
+    spanElement.textContent = `${amounts * 0.019} XRPL`;
+    XRPLVALUE = amounts * 0.019;
+} else {
+    const amounts = parseFloat(bData.totalAmount.replace(/[^\d]/g, ''));
+    spanElement.textContent = `${amounts * 1.60} XRPL`;
+    XRPLVALUE = amounts * 1.60;
+
+}
+console.log(XRPLVALUE)
 
 const reservationID = bData.reservationID
 const name = bData.name
@@ -25,13 +38,8 @@ document.getElementById("btn").addEventListener("click", async (e) => {
 })
 
 async function sendTransaction() {
-    const amount = parseFloat(bData.totalAmount.replace(/[^\d]/g, ''));
+    loader.classList.remove("hide")
 
-    //exchanged rate is kept low since the balance is 10,000 
-    const exchangeRate = 0.75;
-
-    const xrplvalue = amount * exchangeRate
-    console.log(xrplvalue)
     const receiverAdd = await axios({
         method: "get",
         url: "http://localhost:4001/api/admin",
@@ -39,13 +47,15 @@ async function sendTransaction() {
     const receiverAddress = receiverAdd.data.data[0].xrplAccount;
     const seed = document.querySelector("#userseed").value
     if (seed === " " || seed === "") {
+    loader.classList.add("hide")
+
         Swal.fire(
             '',
             'Seed cannot be empty ',
             'error'
         );
     } else {
-        sendXRP(seed, xrplvalue, receiverAddress);
+        sendXRP(seed, XRPLVALUE, receiverAddress);
     }
 }
 
@@ -71,7 +81,6 @@ async function bookNow(data) {
 
 async function sendXRP(seed, amount, destination) {
     const client = new xrpl.Client('wss://s.devnet.rippletest.net:51233/', { connectionTimeout: 10000 });
-    loader.classList.add("hide")
     try {
         await client.connect();
         let address = "";
@@ -81,6 +90,13 @@ async function sendXRP(seed, amount, destination) {
             address = wallet.classicAddress;
         } catch (err) {
             console.error("Invalid Seed Value", err);
+            loader.classList.add("hide")
+
+            Swal.fire(
+                '',
+                'Invalid Seed',
+                'error'
+            );
             return;
         }
         const prepared = await client.autofill({
@@ -92,6 +108,13 @@ async function sendXRP(seed, amount, destination) {
         const signed = wallet.sign(prepared);
         const tx = await client.submitAndWait(signed.tx_blob).catch((err) => {
             console.error("Transaction submission error:", err);
+            loader.classList.add("hide")
+
+            Swal.fire(
+                '',
+                'Error' + err,
+                'error'
+            );
         });
         console.log(tx)
 
@@ -147,14 +170,23 @@ async function sendXRP(seed, amount, destination) {
             }
             bookNow(data);
         } else {
+            loader.classList.add("hide")
+
             Swal.fire(
                 '',
-                'Error Transacting',
+                'Insufficient Balance',
                 'error'
             );
         }
     } catch (error) {
         console.error(error);
+        loader.classList.add("hide")
+
+        Swal.fire(
+            '',
+            'Error' + error,
+            'error'
+        );
     } finally {
         await client.disconnect();
     }
