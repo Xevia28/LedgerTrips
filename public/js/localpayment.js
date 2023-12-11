@@ -7,11 +7,14 @@ var XRPLVALUE = 0;
 if (currencySymbol === "Nu") {
     const amounts = parseFloat(bData.totalAmount.replace(/[^\d]/g, ''));
     spanElement.textContent = `${amounts * 0.019} XRPL`;
-    XRPLVALUE = amounts * 0.019;
+    XRPLVALUE = parseFloat((amounts * 0.019).toFixed(4));
+
 } else {
     const amounts = parseFloat(bData.totalAmount.replace(/[^\d]/g, ''));
     spanElement.textContent = `${amounts * 1.60} XRPL`;
-    XRPLVALUE = amounts * 1.60;
+    XRPLVALUE = parseFloat((amounts * 0.019).toFixed(4));
+
+
 
 }
 console.log(XRPLVALUE)
@@ -47,7 +50,7 @@ async function sendTransaction() {
     const receiverAddress = receiverAdd.data.data[0].xrplAccount;
     const seed = document.querySelector("#userseed").value
     if (seed === " " || seed === "") {
-    loader.classList.add("hide")
+        loader.classList.add("hide")
 
         Swal.fire(
             '',
@@ -124,7 +127,8 @@ async function sendXRP(seed, amount, destination) {
         const receiver = tx.result.Destination;
         const sender = tx.result.Account;
         const result = tx.result.meta.TransactionResult;
-        const amountsent = `${tx.result.meta.delivered_amount} RIPPLE`
+        const num = xrpl.dropsToXrp(tx.result.meta.delivered_amount)
+        const amountsent = `${num} XRPL`
         const date = new Date(tx.result.date * 1000);
         const options = { weekday: 'short', month: 'short', day: 'numeric' };
         const formattedDate = date.toLocaleDateString('en-US', options);
@@ -168,7 +172,7 @@ async function sendXRP(seed, amount, destination) {
                 totalAmount,
                 transactionID
             }
-            bookNow(data);
+            await bookNow(data);
         } else {
             loader.classList.add("hide")
 
