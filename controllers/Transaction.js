@@ -35,7 +35,7 @@ exports.updateBooking = async (req, res) => {
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: booking.email,
-            subject: 'You have successfully booked your stay at THE PEMA BY REALM, Thimphu',
+            subject: 'You have successfully booked your stay at LEDGERTRIPS, Thimphu',
             html: `
             <!DOCTYPE html>
             <html lang="en">
@@ -124,7 +124,7 @@ exports.updateBooking = async (req, res) => {
                         </p>
             
                         <p>
-                            We are pleased to confirm your reservation with The Pema by Realm, Thimphu. Here is a summary of your
+                            We are pleased to confirm your reservation with LEDGERTRIPS, Thimphu. Here is a summary of your
                             booking and information. We look forward to welcoming you and making your stay a memorable one.
                         </p>
                         <br>
