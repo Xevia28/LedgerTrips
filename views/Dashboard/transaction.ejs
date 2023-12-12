@@ -58,7 +58,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <% transactions.forEach((transaction)=> { %>
+                                <% transactions.reverse().forEach((transaction)=> { %>
                                     <tr>
                                         <td>
                                             <%= transaction.amount%>
