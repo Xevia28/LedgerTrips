@@ -14,8 +14,6 @@ if (currencySymbol === "Nu") {
     spanElement.textContent = `${(amounts * 1.60).toFixed(4)} XRP`;
     XRPLVALUE = parseFloat((amounts * 1.60).toFixed(4));
 
-
-
 }
 console.log(XRPLVALUE)
 

@@ -134,7 +134,7 @@ exports.createBooking = async (req, res) => {
                         </p>
             
                         <p>
-                            We are pleased to confirm your reservation with The Pema by Realm, Thimphu. Here is a summary of your
+                            We are pleased to confirm your reservation with Ledger Trips, Thimphu. Here is a summary of your
                             booking and information. We look forward to welcoming you and making your stay a memorable one.
                         </p>
                         <br>
