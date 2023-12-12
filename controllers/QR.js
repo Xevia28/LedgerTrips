@@ -1,13 +1,5 @@
 const TransactionHistory = require('../models/QR');
 
-exports.Booking = async (req, res, next) => {
-    try {
-        res.render("./Dashboard/adminBooking.ejs");
-    } catch (error) {
-        console.log(error);
-    }
-};
-
 exports.getTransaction = async (req, res) => {
     try {
         const transactions = await TransactionHistory.find();

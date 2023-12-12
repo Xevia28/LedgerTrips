@@ -1,9 +1,9 @@
 exports.AddRoom = async (req, res, next) => {
-    try {
-      res.render("./Dashboard/addRoom.ejs");
-    } catch (error) {
-      console.log(error);
-    }
+  try {
+    res.render("./Dashboard/addRoom.ejs");
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 exports.UpdateRoom = async (req, res, next) => {
@@ -17,6 +17,14 @@ exports.UpdateRoom = async (req, res, next) => {
 exports.AllRoom = async (req, res, next) => {
   try {
     res.render("./Dashboard/room.ejs");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+exports.Booking = async (req, res, next) => {
+  try {
+    res.render("./Dashboard/adminBooking.ejs");
   } catch (error) {
     console.log(error);
   }

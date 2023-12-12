@@ -17,7 +17,7 @@ const login = async (email, password) => {
             );
             var obj = res.data.data.admin
             document.cookie = 'token=' + JSON.stringify(obj) + ';path=/';
-            location.assign('/api/calendar');
+            location.assign('/api/adminroom/bookedrooms');
         } else {
             // For non-successful login, show the error message from the server (if available)
             Swal.fire(

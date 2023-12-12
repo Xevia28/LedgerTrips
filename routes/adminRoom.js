@@ -14,4 +14,9 @@ router
     .route('/update')
     .get(roomController.UpdateRoom)
 
+
+router
+    .route('/bookedrooms')
+    .get(roomController.Booking)
+
 module.exports = router
