@@ -36,6 +36,9 @@ exports.createBooking = async (req, res) => {
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASSWORD
+            },
+            tls: {
+                rejectUnauthorized: false // Add this option to bypass SSL certificate validation
             }
         });
 
@@ -50,7 +53,7 @@ exports.createBooking = async (req, res) => {
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: booking.email,
-            subject: 'You have successfully booked your stay at THE PEMA BY REALM, Thimphu',
+            subject: 'You have successfully booked your stay at LEDGERTRIPS, Thimphu',
             html: `
             <!DOCTYPE html>
             <html lang="en">
