@@ -38,7 +38,7 @@ exports.createBooking = async (req, res) => {
                 pass: process.env.EMAIL_PASSWORD
             },
             tls: {
-                rejectUnauthorized: false // Add this option to bypass SSL certificate validation
+                rejectUnauthorized: false 
             }
         });
 
@@ -283,7 +283,7 @@ exports.createBooking = async (req, res) => {
                                         Reservation Executive
                                     </td>
                                     <td>
-                                        Mr. Hem
+                                        Mr. Manager
                                     </td>
                                 </tr>
                                 <tr>
