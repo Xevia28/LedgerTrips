@@ -292,8 +292,8 @@ exports.createBooking = async (req, res) => {
                                     </td>
                                     <td>
                                         <p>
-                                            <b> +975-17279401 </b> (mobile / whatsapp available)<br>
-                                            <b>+975-2-338888</b> (Hotel Reception Desk)
+                                            <b> +975-17222401 </b> (mobile / whatsapp available)<br>
+                                            <b>+975-2-12345</b> (Hotel Reception Desk)
                                         </P>
                                     </td>
                                 </tr>
