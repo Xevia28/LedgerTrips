@@ -12,8 +12,8 @@ nav {
 
 .nav-main-container {
   background-color: #333132;
-  height: 70px;
-  padding: 0 9.5vw;
+  /* height: 80px; */
+  padding: 20px 9.5vw;
   font-family: "Nunito Sans";
   position: relative;
 }
@@ -27,7 +27,7 @@ nav {
 }
 
 .nav-main-container .logo img {
-  height: 58px;
+  height: 50px;
   width: auto;
   -o-object-fit: cover;
   object-fit: cover;

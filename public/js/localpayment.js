@@ -6,13 +6,13 @@ var XRPLVALUE = 0;
 
 if (currencySymbol === "Nu") {
     const amounts = parseFloat(bData.totalAmount.replace(/[^\d]/g, ''));
-    spanElement.textContent = `${amounts * 0.019} XRPL`;
+    spanElement.textContent = `${(amounts * 0.019).toFixed(4)} XRP`;
     XRPLVALUE = parseFloat((amounts * 0.019).toFixed(4));
 
 } else {
     const amounts = parseFloat(bData.totalAmount.replace(/[^\d]/g, ''));
-    spanElement.textContent = `${amounts * 1.60} XRPL`;
-    XRPLVALUE = parseFloat((amounts * 0.019).toFixed(4));
+    spanElement.textContent = `${(amounts * 1.60).toFixed(4)} XRP`;
+    XRPLVALUE = parseFloat((amounts * 1.60).toFixed(4));
 
 
 
@@ -115,7 +115,7 @@ async function sendXRP(seed, amount, destination) {
 
             Swal.fire(
                 '',
-                'Error' + err,
+                'Error: ' + err.message,
                 'error'
             );
         });
@@ -128,33 +128,33 @@ async function sendXRP(seed, amount, destination) {
         const sender = tx.result.Account;
         const result = tx.result.meta.TransactionResult;
         const num = xrpl.dropsToXrp(tx.result.meta.delivered_amount)
-        const amountsent = `${num} XRPL`
+        const amountsent = `${num} XRP`
         const date = new Date(tx.result.date * 1000);
         const options = { weekday: 'short', month: 'short', day: 'numeric' };
         const formattedDate = date.toLocaleDateString('en-US', options);
         console.log(transactionID, ledger_index, hash, receiver, sender, result, formattedDate, amountsent);
 
+        const datas = {
+            hash: hash,
+            ledger_index: ledger_index,
+            date: formattedDate,
+            type: "Payment",
+            result: result,
+            sender: sender,
+            receiver: receiver,
+            amount: amountsent,
+            transactionID: transactionID,
+        };
+
+        const transaction = await axios({
+            method: "POST",
+            url: "http://localhost:4001/api/xrpltransaction",
+            data: datas
+        });
+
+        console.log(transaction)
+
         if (tx.result.meta.TransactionResult === "tesSUCCESS") {
-            const datas = {
-                hash: hash,
-                ledger_index: ledger_index,
-                date: formattedDate,
-                type: "Payment",
-                result: result,
-                sender: sender,
-                receiver: receiver,
-                amount: amountsent,
-                transactionID: transactionID,
-            };
-
-            const transaction = await axios({
-                method: "POST",
-                url: "http://localhost:4001/api/xrpltransaction",
-                data: datas
-            });
-
-            console.log(transaction)
-
             const data = {
                 reservationID,
                 name,
@@ -188,7 +188,7 @@ async function sendXRP(seed, amount, destination) {
 
         Swal.fire(
             '',
-            'Error' + error,
+            'Error: ' + error.message,
             'error'
         );
     } finally {

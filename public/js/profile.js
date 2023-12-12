@@ -22,7 +22,7 @@ async function handleUserDetails() {
         const client = new xrpl.Client('wss://s.devnet.rippletest.net:51233/', { connectionTimeout: 10000, requestTimeout: 60000, });
         await client.connect();
         const walletBalance = await client.getXrpBalance(userToken.xrplAccount)
-        document.getElementById("account_balance").innerHTML = `${walletBalance} Ripple`
+        document.getElementById("account_balance").innerHTML = `${walletBalance} XRP`
         console.log(walletBalance)
     } catch (err) {
         console.log(err)
