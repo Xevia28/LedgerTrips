@@ -29,7 +29,7 @@ window.onload = extractCountryCodeAndNumber
 
 const getBookings = () => {
   return axios
-    .get("http://localhost:4001/api/bookings")
+    .get("https://ledger-trips.onrender.com/api/bookings")
     .then((response) => {
       const bookings = response.data.data;
       bookings.forEach((booking) => {

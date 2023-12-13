@@ -33,7 +33,7 @@ async function fetchData() {
     try {
         var getadmins = await axios({
             method: "GET",
-            url: "http://localhost:4001/api/admin/"
+            url: "https://ledger-trips.onrender.com/api/admin/"
         })
         
         const alladmins = getadmins.data.data
@@ -49,17 +49,17 @@ async function fetchData() {
 
         var res = await axios({
             method: "GET",
-            url: "http://localhost:4001/api/roomtypes",
+            url: "https://ledger-trips.onrender.com/api/roomtypes",
         });
         roomDetails = res.data.data.roomType
         var res = await axios({
             method: "GET",
-            url: "http://localhost:4001/api/bookings"
+            url: "https://ledger-trips.onrender.com/api/bookings"
         })
         bookings = res.data.data
         var res = await axios({
             method: "GET",
-            url: "http://localhost:4001/api/customBooking"
+            url: "https://ledger-trips.onrender.com/api/customBooking"
         })
         customBookings = res.data.data
 
@@ -610,8 +610,8 @@ confirmBtn.addEventListener("click", async (e) => {
                         "price": priceUpdate
                     }
 
-                    updateRequest("PATCH", "http://localhost:4001/api/customBooking/" + value._id, dataUpdate)
-                    updateRequest("POST", "http://localhost:4001/api/customBooking", dataNew)
+                    updateRequest("PATCH", "https://ledger-trips.onrender.com/api/customBooking/" + value._id, dataUpdate)
+                    updateRequest("POST", "https://ledger-trips.onrender.com/api/customBooking", dataNew)
 
                 } else if (customStart >= startDate && customEnd <= endDate) {
                     let priceUpdate;
@@ -629,7 +629,7 @@ confirmBtn.addEventListener("click", async (e) => {
                         "price": priceUpdate
                     }
 
-                    updateRequest("PATCH", "http://localhost:4001/api/customBooking/" + value._id, dataNew)
+                    updateRequest("PATCH", "https://ledger-trips.onrender.com/api/customBooking/" + value._id, dataNew)
 
 
                 } else if (customStart >= startDate && customStart <= endDate && customEnd > endDate) {
@@ -665,8 +665,8 @@ confirmBtn.addEventListener("click", async (e) => {
                         "price": value.price
                     }
 
-                    updateRequest('PATCH', "http://localhost:4001/api/customBooking/" + value._id, dataUpdate)
-                    updateRequest("POST", "http://localhost:4001/api/customBooking/", dataNew)
+                    updateRequest('PATCH', "https://ledger-trips.onrender.com/api/customBooking/" + value._id, dataUpdate)
+                    updateRequest("POST", "https://ledger-trips.onrender.com/api/customBooking/", dataNew)
                 } else if (customStart <= startDate && customEnd >= endDate) {
                     // console.log("third Update");
                     const jsStartString = new Date(startDate);
@@ -710,9 +710,9 @@ confirmBtn.addEventListener("click", async (e) => {
                         "price": priceUpdate
                     }
 
-                    updateRequest("PATCH", "http://localhost:4001/api/customBooking/" + value._id, dataUpdateStart)
-                    updateRequest("POST", "http://localhost:4001/api/customBooking/", dataUpdateEnd)
-                    updateRequest("POST", "http://localhost:4001/api/customBooking/", dataNew)
+                    updateRequest("PATCH", "https://ledger-trips.onrender.com/api/customBooking/" + value._id, dataUpdateStart)
+                    updateRequest("POST", "https://ledger-trips.onrender.com/api/customBooking/", dataUpdateEnd)
+                    updateRequest("POST", "https://ledger-trips.onrender.com/api/customBooking/", dataNew)
                 }
             }
         }
@@ -766,7 +766,7 @@ confirmBtn.addEventListener("click", async (e) => {
                             "rooms": rooms,
                             "price": price
                         }
-                        updateRequest("POST", "http://localhost:4001/api/customBooking/", dataNew)
+                        updateRequest("POST", "https://ledger-trips.onrender.com/api/customBooking/", dataNew)
 
                         customStart = ""
                         customEnd = ""
@@ -801,7 +801,7 @@ confirmBtn.addEventListener("click", async (e) => {
                 "rooms": rooms,
                 "price": price
             }
-            updateRequest("POST", "http://localhost:4001/api/customBooking/", dataNew)
+            updateRequest("POST", "https://ledger-trips.onrender.com/api/customBooking/", dataNew)
 
         }
         Swal.fire(
@@ -849,10 +849,10 @@ resetBtn.addEventListener("click", async (e) => {
                         "rooms": value.room,
                         "price": value.price
                     }
-                    updateRequest("PATCH", "http://localhost:4001/api/customBooking/" + value._id, dataUpdate)
+                    updateRequest("PATCH", "https://ledger-trips.onrender.com/api/customBooking/" + value._id, dataUpdate)
                 }
                 else if (customStart >= startDate && customEnd <= endDate) {
-                    noDataReq("DELETE", "http://localhost:4001/api/customBooking/" + value._id)
+                    noDataReq("DELETE", "https://ledger-trips.onrender.com/api/customBooking/" + value._id)
                 } else if (customStart >= startDate && customStart <= endDate && customEnd > endDate) {
                     alert("Third Clause")
                     const jsStartString = new Date(startDate);
@@ -870,7 +870,7 @@ resetBtn.addEventListener("click", async (e) => {
                         "rooms": value.room,
                         "price": value.price
                     }
-                    updateRequest("PATCH", "http://localhost:4001/api/customBooking/" + value._id, dataUpdate)
+                    updateRequest("PATCH", "https://ledger-trips.onrender.com/api/customBooking/" + value._id, dataUpdate)
                 } else if (customStart <= startDate && customEnd >= endDate) {
                     const jsStartString = new Date(startDate);
                     const jsEndString = new Date(endDate);
@@ -899,8 +899,8 @@ resetBtn.addEventListener("click", async (e) => {
                         "rooms": value.rooms,
                         "price": value.price
                     }
-                    updateRequest("PATCH", "http://localhost:4001/api/customBooking/" + value._id, dataUpdateStart)
-                    updateRequest("POST", "http://localhost:4001/api/customBooking/", dataUpdateEnd)
+                    updateRequest("PATCH", "https://ledger-trips.onrender.com/api/customBooking/" + value._id, dataUpdateStart)
+                    updateRequest("POST", "https://ledger-trips.onrender.com/api/customBooking/", dataUpdateEnd)
                 }
 
             }
@@ -923,7 +923,7 @@ const logout = async () => {
     try {
         const res = await axios({
             method: 'GET',
-            url: 'http://localhost:4001/api/admin/logout',
+            url: 'https://ledger-trips.onrender.com/api/admin/logout',
         })
         if (res.data.status === 'success') {
             location.reload(true)

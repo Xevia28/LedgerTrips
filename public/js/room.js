@@ -10,12 +10,12 @@ async function fetchData() {
   try {
     const getRooms = await axios({
       method: "GET",
-      url: "http://localhost:4001/api/roomtypes",
+      url: "https://ledger-trips.onrender.com/api/roomtypes",
     });
 
     const getRates = await axios({
       method: "GET",
-      url: "http://localhost:4001/api/usdrate",
+      url: "https://ledger-trips.onrender.com/api/usdrate",
     });
     const rates = getRates.data.data;
     let usdRate = 0
@@ -57,7 +57,7 @@ async function fetchData() {
 
     const getCustomBookings = async () => {
       try {
-        const response = await axios.get("http://localhost:4001/api/customBooking");
+        const response = await axios.get("https://ledger-trips.onrender.com/api/customBooking");
         const bookings = response.data.data;
         bookings.forEach((data) => {
           if (checkinDate <= data.endDate && checkoutDate >= data.startDate) {
@@ -360,7 +360,7 @@ const cardPressed = async (e) => {
   const price = document.getElementById("price" + card_id).textContent;
   try {
     const response = await axios.get(
-      "http://localhost:4001/api/roomtypes/" + card_id
+      "https://ledger-trips.onrender.com/api/roomtypes/" + card_id
     );
     const Room = response.data.data;
 

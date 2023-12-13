@@ -1,7 +1,7 @@
 async function getAdmin() {
     const getadmins = await axios({
         method: "GET",
-        url: "http://localhost:4001/api/admin/"
+        url: "https://ledger-trips.onrender.com/api/admin/"
     })
     
     const alladmins = getadmins.data.data

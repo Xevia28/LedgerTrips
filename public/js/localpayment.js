@@ -43,7 +43,7 @@ async function sendTransaction() {
 
     const receiverAdd = await axios({
         method: "get",
-        url: "http://localhost:4001/api/admin",
+        url: "https://ledger-trips.onrender.com/api/admin",
     });
     const receiverAddress = receiverAdd.data.data[0].xrplAccount;
     const seed = document.querySelector("#userseed").value
@@ -63,7 +63,7 @@ async function sendTransaction() {
 async function bookNow(data) {
     const book = await axios({
         method: "POST",
-        url: "http://localhost:4001/api/bookings",
+        url: "https://ledger-trips.onrender.com/api/bookings",
         data: data
     });
     loader.classList.add("hide")
@@ -146,7 +146,7 @@ async function sendXRP(seed, amount, destination) {
 
         const transaction = await axios({
             method: "POST",
-            url: "http://localhost:4001/api/xrpltransaction",
+            url: "https://ledger-trips.onrender.com/api/xrpltransaction",
             data: datas
         });
 

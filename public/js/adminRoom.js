@@ -1,7 +1,7 @@
 async function getAdmin() {
     const getadmins = await axios({
       method: "GET",
-      url: "http://localhost:4001/api/admin/"
+      url: "https://ledger-trips.onrender.com/api/admin/"
     })
     
     const alladmins = getadmins.data.data
@@ -22,7 +22,7 @@ async function fetchRooms(){
         getAdmin()
         const getRooms = await axios({
             method: "GET",
-            url: "http://localhost:4001/api/roomtypes",
+            url: "https://ledger-trips.onrender.com/api/roomtypes",
         });
 
         const rooms=getRooms.data.data.roomType
@@ -101,7 +101,7 @@ const logout = async () => {
     try{
         const res = await axios({
             method: 'GET',
-            url: 'http://localhost:4001/api/admin/logout',
+            url: 'https://ledger-trips.onrender.com/api/admin/logout',
         })
         if(res.data.status === 'success') {
             location.reload(true)

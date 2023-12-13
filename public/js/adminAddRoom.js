@@ -1,7 +1,7 @@
 async function getAdmin() {
   const getadmins = await axios({
     method: "GET",
-    url: "http://localhost:4001/api/admin/"
+    url: "https://ledger-trips.onrender.com/api/admin/"
   })
   
   const alladmins = getadmins.data.data
@@ -23,7 +23,7 @@ const addRoom = async (data) => {
     try {
       const res = await axios({
         method: "POST",
-        url: "http://localhost:4001/api/roomtypes",
+        url: "https://ledger-trips.onrender.com/api/roomtypes",
         data: data,
       });
       if (res.data.status === "success") {
@@ -70,7 +70,7 @@ const logout = async () => {
   try{
       const res = await axios({
           method: 'GET',
-          url: 'http://localhost:4001/api/admin/logout',
+          url: 'https://ledger-trips.onrender.com/api/admin/logout',
       })
       if(res.data.status === 'success') {
           location.reload(true)

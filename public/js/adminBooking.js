@@ -6,7 +6,7 @@ let totalRoomCounts = 0;
 async function getAdmin() {
   const getadmins = await axios({
     method: "GET",
-    url: "http://localhost:4001/api/admin/"
+    url: "https://ledger-trips.onrender.com/api/admin/"
   })
   
   const alladmins = getadmins.data.data
@@ -26,7 +26,7 @@ async function fetchRooms() {
   try {
     const getRooms = await axios({
       method: "GET",
-      url: "http://localhost:4001/api/roomtypes"
+      url: "https://ledger-trips.onrender.com/api/roomtypes"
     })
 
     const rooms = getRooms.data.data.roomType
@@ -49,7 +49,7 @@ async function fetchBookings() {
   try {
     const getBookings = await axios({
       method: "GET",
-      url: "http://localhost:4001/api/bookings",
+      url: "https://ledger-trips.onrender.com/api/bookings",
     });
 
     const bookings = getBookings.data.data;
@@ -140,7 +140,7 @@ const cardPressed = async (e) => {
   id = card_id;
   try {
     const response = await axios.get(
-      "http://localhost:4001/api/bookings/" + card_id
+      "https://ledger-trips.onrender.com/api/bookings/" + card_id
     );
     const booking = response.data.data;
     document.getElementById("modalReservationID").innerHTML =
@@ -242,7 +242,7 @@ deleteButton.addEventListener("click", async (event) => {
     try {
       const deleteinfo = await axios({
         method: "DELETE",
-        url: "http://localhost:4001/api/bookings/" + id,
+        url: "https://ledger-trips.onrender.com/api/bookings/" + id,
       });
 
       Swal.fire(
@@ -268,7 +268,7 @@ const logout = async () => {
   try {
     const res = await axios({
       method: 'GET',
-      url: 'http://localhost:4001/api/admin/logout',
+      url: 'https://ledger-trips.onrender.com/api/admin/logout',
     })
     if (res.data.status === 'success') {
       location.reload(true)

@@ -21,7 +21,7 @@ exports.forgotPassword = async (req, res) => {
         }
         const secret = process.env.JWT_SECRET + oldUser.password;
         const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, { expiresIn: "5m" });
-        const link = `http://localhost:4001/api/forgotPassword/reset-password/${oldUser._id}/${token}`; // Update the URL with your domain name and port number
+        const link = `https://ledger-trips.onrender.com/api/forgotPassword/reset-password/${oldUser._id}/${token}`; // Update the URL with your domain name and port number
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {

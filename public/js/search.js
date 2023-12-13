@@ -303,7 +303,7 @@ function checkOutDate() {
 
 const getRooms = async () => {
   try {
-    const response = await axios.get("http://localhost:4001/api/roomtypes");
+    const response = await axios.get("https://ledger-trips.onrender.com/api/roomtypes");
     const rooms = response.data.data.roomType;
     rooms.forEach((room) => {
       if (!roomBooked.hasOwnProperty(room.name)) {
@@ -320,7 +320,7 @@ getRooms();
 
 const getBookings = (checkinDate, checkoutDate) => {
   return axios
-    .get("http://localhost:4001/api/bookings")
+    .get("https://ledger-trips.onrender.com/api/bookings")
     .then((response) => {
       const bookings = response.data.data;
       bookings.forEach((booking) => {
@@ -340,7 +340,7 @@ const getBookings = (checkinDate, checkoutDate) => {
 let customRoom = {}
 const getCustomBookings = (checkinDate, checkoutDate) => {
   return axios
-    .get("http://localhost:4001/api/customBooking")
+    .get("https://ledger-trips.onrender.com/api/customBooking")
     .then((response) => {
       const bookings = response.data.data;
       bookings.forEach((booking) => {
@@ -423,7 +423,7 @@ const finalCheck = async (checkinDate, checkoutDate, fValue) => {
   try {
     const res = await axios({
       method: "POST",
-      url: "http://localhost:4001/checkSearch",
+      url: "https://ledger-trips.onrender.com/checkSearch",
       data: {
         checkinDate,
         checkoutDate,
