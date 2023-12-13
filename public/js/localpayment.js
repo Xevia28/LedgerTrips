@@ -1,6 +1,5 @@
 var spanElement = document.querySelector('h3.amount span');
 const bData = JSON.parse(sessionStorage.getItem("bookingData"));
-console.log(bData)
 const currencySymbol = bData.totalAmount.match(/[^\d.,]+/)[0];
 var XRPLVALUE = 0;
 
@@ -15,7 +14,6 @@ if (currencySymbol === "Nu") {
     XRPLVALUE = parseFloat((amounts * 1.60).toFixed(4));
 
 }
-console.log(XRPLVALUE)
 
 const reservationID = bData.reservationID
 const name = bData.name
