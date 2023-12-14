@@ -177,7 +177,6 @@ async function fetchData() {
     await getCustomBookings();
 
     rooms.forEach((room) => {
-      console.log(room)
       var id = room._id;
       const div0 = document.getElementById("mainContainer");
 
