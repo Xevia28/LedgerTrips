@@ -120,7 +120,7 @@ exports.createRoomType = async (req, res) => {
             .json({ status: "Invalid", message: "No Image in the request" });
         }
         const fileName = req.file.filename;
-        const basePath = `${req.protocol}://${req.get("host")}/public/images/`;
+        const basePath = `${req.protocol}s://${req.get("host")}/public/images/`;
         req.body.photo = `${basePath}${fileName}`
 
         const room = await RoomType.create(req.body);
@@ -150,7 +150,7 @@ exports.updateRoomType = async (req, res) => {
       if (files) {
         console.log("file here")
         const fileName = req.file.filename;
-        const basePath = `${req.protocol}://${req.get("host")}/public/images/`;
+        const basePath = `${req.protocol}s://${req.get("host")}/public/images/`;
         req.body.photo = `${basePath}${fileName}`
       }
     const roomType = await RoomType.findByIdAndUpdate(req.params.id, req.body);
