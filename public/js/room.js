@@ -265,8 +265,9 @@ async function fetchData() {
       label.appendChild(span);
       div11.appendChild(div12);
       div8.appendChild(div13)
-
-      document.getElementById("img" + id).src = room.photo;
+      let url = room.photo;
+      url = url.replace(/-\d+\.png$/, "");
+      document.getElementById("img" + id).src = url;
       document.getElementById("name" + id).innerHTML = room.name;
       document.getElementById("details" + id).innerHTML = room.description;
       document.getElementById("icon" + id).icon = "mdi:location";
